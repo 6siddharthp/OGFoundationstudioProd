@@ -1,0 +1,10 @@
+{
+  "projectKey": "oil_gas_downstream_rd",
+  "sourceMode": "snowflake",
+  "platform": {
+    "language": "python",
+    "dataPlatform": "databricks",
+    "cloudProvider": "azure",
+    "orchestration": "databricks_workflows"
+  }
+}
