@@ -2,7 +2,7 @@
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.silver_lims_curitiba AS
 SELECT row_data.source_row_number,
-  row_data.sample_id AS sample_id_demo,
+  row_data.sample_id AS sample_id,
   row_data.product_line AS product_line,
   row_data.material_code AS material_code,
   row_data.batch_lot_number AS batch_lot_number,
