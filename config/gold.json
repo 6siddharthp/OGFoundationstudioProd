@@ -1,0 +1,442 @@
+{
+  "confirmedAt": "2026-09-22T01:30:37.393Z",
+  "selectedKpis": [
+    "Cross-Lab Data Standardization Rate",
+    "Cross-Lab Reproducibility Index",
+    "Cross-Site Result Correlation",
+    "Duplicate Test Rate Across Labs",
+    "Inter-Site Result Deviation",
+    "Site-Pair Agreement by Method",
+    "Test Method Standardization Rate",
+    "Unmatched Sample Rate",
+    "Backlog Aging Index",
+    "First-Time-Right Rate",
+    "Instrument Throughput",
+    "LIMS Data Completeness",
+    "Lab Capacity Utilization",
+    "Retest Rate",
+    "Sample Turnaround Time",
+    "Sample Volume Trend"
+  ],
+  "tables": [
+    {
+      "name": "Dim_Material",
+      "description": "Conformed entity Material. Grain: one row per canonical material.",
+      "entityRef": "MATERIAL",
+      "columns": [
+        {
+          "name": "material_key",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": true,
+          "isForeignKey": false
+        },
+        {
+          "name": "canonical_material_name",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "business_line",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "cas_number",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "supplier",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "unit_of_measure",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "hazard_classification",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        }
+      ]
+    },
+    {
+      "name": "Dim_Test_Method",
+      "description": "Conformed entity Test Method. Grain: one row per governed test standard.",
+      "entityRef": "TEST_METHOD",
+      "columns": [
+        {
+          "name": "test_method_key",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": true,
+          "isForeignKey": false
+        },
+        {
+          "name": "governed_standard_reference",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "standard_body",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "method_title",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "applies_to_business_line",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        }
+      ]
+    },
+    {
+      "name": "Dim_Lab_Site",
+      "description": "Derived from site codes across the governed LIMS sources. Grain: one row per governed laboratory site.",
+      "columns": [
+        {
+          "name": "site_key",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": true,
+          "isForeignKey": false
+        },
+        {
+          "name": "site_code",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "site_name",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        }
+      ]
+    },
+    {
+      "name": "Dim_Business_Line",
+      "description": "Derived from governed business-line values. Grain: one row per governed business line.",
+      "columns": [
+        {
+          "name": "business_line_key",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": true,
+          "isForeignKey": false
+        },
+        {
+          "name": "business_line_name",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        }
+      ]
+    },
+    {
+      "name": "Dim_Date",
+      "description": "Generated calendar dimension. Grain: one row per calendar date.",
+      "columns": [
+        {
+          "name": "date_key",
+          "dataType": "INTEGER",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": true,
+          "isForeignKey": false
+        },
+        {
+          "name": "full_date",
+          "dataType": "DATE",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "year",
+          "dataType": "INTEGER",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "quarter",
+          "dataType": "INTEGER",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "month",
+          "dataType": "INTEGER",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "month_name",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "week_of_year",
+          "dataType": "INTEGER",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "day_of_week",
+          "dataType": "INTEGER",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        }
+      ]
+    },
+    {
+      "name": "Fact_Lab_Sample",
+      "description": "Conformed entity Lab Sample. Grain: one row per conformed sample.",
+      "entityRef": "LAB_SAMPLE",
+      "columns": [
+        {
+          "name": "lab_sample_key",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": true,
+          "isForeignKey": false
+        },
+        {
+          "name": "material_key",
+          "dataType": "VARCHAR",
+          "description": "Foreign key to Dim_Material.material_key.",
+          "isPrimaryKey": false,
+          "isForeignKey": true,
+          "references": "Dim_Material.material_key"
+        },
+        {
+          "name": "test_method_key",
+          "dataType": "VARCHAR",
+          "description": "Foreign key to Dim_Test_Method.test_method_key.",
+          "isPrimaryKey": false,
+          "isForeignKey": true,
+          "references": "Dim_Test_Method.test_method_key"
+        },
+        {
+          "name": "site_key",
+          "dataType": "VARCHAR",
+          "description": "Foreign key to Dim_Lab_Site.site_key.",
+          "isPrimaryKey": false,
+          "isForeignKey": true,
+          "references": "Dim_Lab_Site.site_key"
+        },
+        {
+          "name": "business_line_key",
+          "dataType": "VARCHAR",
+          "description": "Foreign key to Dim_Business_Line.business_line_key.",
+          "isPrimaryKey": false,
+          "isForeignKey": true,
+          "references": "Dim_Business_Line.business_line_key"
+        },
+        {
+          "name": "date_key",
+          "dataType": "INTEGER",
+          "description": "Foreign key to Dim_Date.date_key.",
+          "isPrimaryKey": false,
+          "isForeignKey": true,
+          "references": "Dim_Date.date_key"
+        },
+        {
+          "name": "turnaround_days",
+          "dataType": "NUMBER(10,2)",
+          "description": "KPI measure.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "sample_status",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "source_system_count",
+          "dataType": "INTEGER",
+          "description": "KPI measure.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        }
+      ]
+    },
+    {
+      "name": "Fact_Test_Result",
+      "description": "Conformed entity Test Result. Grain: one row per result.",
+      "entityRef": "TEST_RESULT",
+      "columns": [
+        {
+          "name": "test_result_key",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": true,
+          "isForeignKey": false
+        },
+        {
+          "name": "lab_sample_key",
+          "dataType": "VARCHAR",
+          "description": "Foreign key to Fact_Lab_Sample.lab_sample_key.",
+          "isPrimaryKey": false,
+          "isForeignKey": true,
+          "references": "Fact_Lab_Sample.lab_sample_key"
+        },
+        {
+          "name": "material_key",
+          "dataType": "VARCHAR",
+          "description": "Foreign key to Dim_Material.material_key.",
+          "isPrimaryKey": false,
+          "isForeignKey": true,
+          "references": "Dim_Material.material_key"
+        },
+        {
+          "name": "test_method_key",
+          "dataType": "VARCHAR",
+          "description": "Foreign key to Dim_Test_Method.test_method_key.",
+          "isPrimaryKey": false,
+          "isForeignKey": true,
+          "references": "Dim_Test_Method.test_method_key"
+        },
+        {
+          "name": "date_key",
+          "dataType": "INTEGER",
+          "description": "Foreign key to Dim_Date.date_key.",
+          "isPrimaryKey": false,
+          "isForeignKey": true,
+          "references": "Dim_Date.date_key"
+        },
+        {
+          "name": "result_value",
+          "dataType": "NUMBER(18,6)",
+          "description": "KPI measure.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "result_unit",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "spec_lower_limit",
+          "dataType": "NUMBER(18,6)",
+          "description": "KPI measure.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "spec_upper_limit",
+          "dataType": "NUMBER(18,6)",
+          "description": "KPI measure.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        },
+        {
+          "name": "within_spec",
+          "dataType": "BOOLEAN",
+          "description": "KPI measure.",
+          "isPrimaryKey": false,
+          "isForeignKey": false
+        }
+      ]
+    }
+  ],
+  "transformations": [],
+  "kpiDataPolicies": [
+    {
+      "kpiName": "First-Time-Right Rate",
+      "mode": "exclude_sites",
+      "requiredFields": [
+        "spec_lower_limit",
+        "spec_upper_limit"
+      ],
+      "sites": [
+        {
+          "siteId": "curitiba",
+          "siteName": "Curitiba",
+          "fields": [
+            "spec_lower_limit",
+            "spec_upper_limit"
+          ],
+          "reason": "Excluded because spec_lower_limit and spec_upper_limit are not captured at source."
+        }
+      ],
+      "summary": "Excludes Curitiba from this KPI calculation."
+    },
+    {
+      "kpiName": "LIMS Data Completeness",
+      "mode": "count_as_gap",
+      "requiredFields": [
+        "*"
+      ],
+      "sites": [
+        {
+          "siteId": "buenos-aires",
+          "siteName": "Buenos Aires",
+          "fields": [
+            "comments"
+          ],
+          "reason": "Not captured at source; counted as 1 completeness gap."
+        },
+        {
+          "siteId": "curitiba",
+          "siteName": "Curitiba",
+          "fields": [
+            "project_reference",
+            "spec_lower_limit",
+            "spec_upper_limit",
+            "approval_date",
+            "storage_location"
+          ],
+          "reason": "Not captured at source; counted as 5 completeness gaps."
+        }
+      ],
+      "summary": "Buenos Aires, Curitiba source gaps are included in the completeness denominator."
+    }
+  ],
+  "_foundation": {
+    "changeReason": "Gold configuration was saved."
+  }
+}
