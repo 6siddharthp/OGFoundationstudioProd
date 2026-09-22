@@ -1,5 +1,5 @@
 {
-  "lockedAt": "2026-09-22T13:37:26.873Z",
+  "lockedAt": "2026-09-22T16:46:33.781Z",
   "config": {
     "tables": [
       {
@@ -32,7 +32,17 @@
             "sourceCaptured": true,
             "description": "Reconciled from PRODUCT_LINE",
             "pii": false,
-            "rules": []
+            "rules": [
+              {
+                "id": "r_qm0nro9z",
+                "type": "case_normalize",
+                "pillar": "cleanse",
+                "params": {
+                  "mode": "upper"
+                },
+                "enabled": true
+              }
+            ]
           },
           {
             "bronzeColumn": "material_code",
@@ -724,7 +734,7 @@
         "columns": [
           {
             "bronzeColumn": "sample_id",
-            "name": "sample_id_Demo",
+            "name": "sample_id",
             "dataType": "VARCHAR(255)",
             "nullable": false,
             "sourceCaptured": true,
@@ -1635,15 +1645,192 @@
   "identity": {
     "entities": [
       {
-        "id": "9svlnts5",
-        "name": "lims_annandale",
-        "description": "Standardized lims annandale",
+        "id": "og_material",
+        "name": "MATERIAL",
+        "description": "Canonical material resolved through the governed Material Master cross-reference, CAS number, and canonical-name similarity.",
         "contributingTables": [
-          "LIMS_ANNANDALE_SAMPLES"
+          "silver_lims_annandale",
+          "silver_lims_houston",
+          "silver_lims_curitiba",
+          "silver_lims_buenos_aires",
+          "silver_raw_material_master"
         ],
         "naturalKeys": [
           {
-            "table": "LIMS_ANNANDALE_SAMPLES",
+            "table": "silver_lims_annandale",
+            "columns": [
+              "material_code"
+            ]
+          },
+          {
+            "table": "silver_lims_houston",
+            "columns": [
+              "material_code"
+            ]
+          },
+          {
+            "table": "silver_lims_curitiba",
+            "columns": [
+              "material_code"
+            ]
+          },
+          {
+            "table": "silver_lims_buenos_aires",
+            "columns": [
+              "material_code"
+            ]
+          },
+          {
+            "table": "silver_raw_material_master",
+            "columns": [
+              "source_material_code"
+            ]
+          }
+        ],
+        "surrogateKey": {
+          "strategy": "hash",
+          "prefix": "MAT_",
+          "hashColumns": [
+            "material_code"
+          ]
+        },
+        "matchRules": [
+          {
+            "id": "material_lims_annandale_xref",
+            "label": "silver_lims_annandale material_code → Material Master cross-reference",
+            "tier": "deterministic",
+            "priority": 1,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "material_code",
+                "rightTable": "silver_raw_material_master",
+                "rightColumn": "source_material_code",
+                "operator": "exact"
+              }
+            ]
+          },
+          {
+            "id": "material_lims_houston_xref",
+            "label": "silver_lims_houston material_code → Material Master cross-reference",
+            "tier": "deterministic",
+            "priority": 2,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_houston",
+                "leftColumn": "material_code",
+                "rightTable": "silver_raw_material_master",
+                "rightColumn": "source_material_code",
+                "operator": "exact"
+              }
+            ]
+          },
+          {
+            "id": "material_lims_curitiba_xref",
+            "label": "silver_lims_curitiba material_code → Material Master cross-reference",
+            "tier": "deterministic",
+            "priority": 3,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_curitiba",
+                "leftColumn": "material_code",
+                "rightTable": "silver_raw_material_master",
+                "rightColumn": "source_material_code",
+                "operator": "exact"
+              }
+            ]
+          },
+          {
+            "id": "material_lims_buenos_aires_xref",
+            "label": "silver_lims_buenos_aires material_code → Material Master cross-reference",
+            "tier": "deterministic",
+            "priority": 4,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_buenos_aires",
+                "leftColumn": "material_code",
+                "rightTable": "silver_raw_material_master",
+                "rightColumn": "source_material_code",
+                "operator": "exact"
+              }
+            ]
+          },
+          {
+            "id": "material_master_cas",
+            "label": "CAS number exact match",
+            "tier": "deterministic",
+            "priority": 5,
+            "predicates": [
+              {
+                "leftTable": "silver_raw_material_master",
+                "leftColumn": "cas_number",
+                "rightTable": "silver_raw_material_master",
+                "rightColumn": "cas_number",
+                "operator": "normalize_exact"
+              }
+            ]
+          },
+          {
+            "id": "material_master_name_similarity",
+            "label": "Canonical material name similarity ≥ 0.85",
+            "tier": "probabilistic",
+            "priority": 6,
+            "predicates": [
+              {
+                "leftTable": "silver_raw_material_master",
+                "leftColumn": "canonical_material_name",
+                "rightTable": "silver_raw_material_master",
+                "rightColumn": "canonical_material_name",
+                "operator": "fuzzy_lev",
+                "threshold": 0.85
+              }
+            ]
+          }
+        ],
+        "survivorship": [
+          {
+            "attribute": "canonical_material_name",
+            "preferredTable": "silver_raw_material_master",
+            "fallbackTables": [
+              "silver_lims_annandale",
+              "silver_lims_houston",
+              "silver_lims_curitiba",
+              "silver_lims_buenos_aires"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "og_lab_sample",
+        "name": "LAB_SAMPLE",
+        "description": "Cross-site laboratory sample identity using each site's sample_id.",
+        "contributingTables": [
+          "silver_lims_annandale",
+          "silver_lims_houston",
+          "silver_lims_curitiba",
+          "silver_lims_buenos_aires"
+        ],
+        "naturalKeys": [
+          {
+            "table": "silver_lims_annandale",
+            "columns": [
+              "sample_id"
+            ]
+          },
+          {
+            "table": "silver_lims_houston",
+            "columns": [
+              "sample_id"
+            ]
+          },
+          {
+            "table": "silver_lims_curitiba",
+            "columns": [
+              "sample_id"
+            ]
+          },
+          {
+            "table": "silver_lims_buenos_aires",
             "columns": [
               "sample_id"
             ]
@@ -1651,109 +1838,324 @@
         ],
         "surrogateKey": {
           "strategy": "hash",
-          "prefix": "LIMS_",
+          "prefix": "SMP_",
           "hashColumns": [
             "sample_id"
           ]
         },
-        "matchRules": [],
+        "matchRules": [
+          {
+            "id": "lab_sample_id_houston",
+            "label": "Cross-site sample_id: silver_lims_annandale ↔ silver_lims_houston",
+            "tier": "deterministic",
+            "priority": 1,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "sample_id",
+                "rightTable": "silver_lims_houston",
+                "rightColumn": "sample_id",
+                "operator": "exact"
+              }
+            ]
+          },
+          {
+            "id": "lab_sample_id_curitiba",
+            "label": "Cross-site sample_id: silver_lims_annandale ↔ silver_lims_curitiba",
+            "tier": "deterministic",
+            "priority": 2,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "sample_id",
+                "rightTable": "silver_lims_curitiba",
+                "rightColumn": "sample_id",
+                "operator": "exact"
+              }
+            ]
+          },
+          {
+            "id": "lab_sample_id_buenos_aires",
+            "label": "Cross-site sample_id: silver_lims_annandale ↔ silver_lims_buenos_aires",
+            "tier": "deterministic",
+            "priority": 3,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "sample_id",
+                "rightTable": "silver_lims_buenos_aires",
+                "rightColumn": "sample_id",
+                "operator": "exact"
+              }
+            ]
+          }
+        ],
         "survivorship": []
       },
       {
-        "id": "alv182sm",
-        "name": "lims_houston",
-        "description": "Standardized lims houston",
+        "id": "og_test_method",
+        "name": "TEST_METHOD",
+        "description": "Governed test method identity mapping site test_type values to the ASTM/ILSAC standard reference.",
         "contributingTables": [
-          "LIMS_HOUSTON_SAMPLES"
+          "silver_lims_annandale",
+          "silver_lims_houston",
+          "silver_lims_curitiba",
+          "silver_lims_buenos_aires"
         ],
         "naturalKeys": [
           {
-            "table": "LIMS_HOUSTON_SAMPLES",
+            "table": "silver_lims_annandale",
             "columns": [
-              "sample_id"
+              "test_type"
+            ]
+          },
+          {
+            "table": "silver_lims_houston",
+            "columns": [
+              "test_type"
+            ]
+          },
+          {
+            "table": "silver_lims_curitiba",
+            "columns": [
+              "test_type"
+            ]
+          },
+          {
+            "table": "silver_lims_buenos_aires",
+            "columns": [
+              "test_type"
             ]
           }
         ],
         "surrogateKey": {
           "strategy": "hash",
-          "prefix": "LIMS_",
+          "prefix": "MTH_",
           "hashColumns": [
-            "sample_id"
+            "test_type"
           ]
         },
-        "matchRules": [],
+        "matchRules": [
+          {
+            "id": "test_method_reference_houston",
+            "label": "Map test_type to governed ASTM/ILSAC standard: silver_lims_annandale ↔ silver_lims_houston",
+            "tier": "deterministic",
+            "priority": 1,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "test_type",
+                "rightTable": "silver_lims_houston",
+                "rightColumn": "test_type",
+                "operator": "governed_reference"
+              }
+            ]
+          },
+          {
+            "id": "test_method_reference_curitiba",
+            "label": "Map test_type to governed ASTM/ILSAC standard: silver_lims_annandale ↔ silver_lims_curitiba",
+            "tier": "deterministic",
+            "priority": 2,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "test_type",
+                "rightTable": "silver_lims_curitiba",
+                "rightColumn": "test_type",
+                "operator": "governed_reference"
+              }
+            ]
+          },
+          {
+            "id": "test_method_reference_buenos_aires",
+            "label": "Map test_type to governed ASTM/ILSAC standard: silver_lims_annandale ↔ silver_lims_buenos_aires",
+            "tier": "deterministic",
+            "priority": 3,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "test_type",
+                "rightTable": "silver_lims_buenos_aires",
+                "rightColumn": "test_type",
+                "operator": "governed_reference"
+              }
+            ]
+          }
+        ],
         "survivorship": []
       },
       {
-        "id": "9zru1t63",
-        "name": "lims_curitiba",
-        "description": "Standardized lims curitiba",
+        "id": "og_test_result",
+        "name": "TEST_RESULT",
+        "description": "Conformed laboratory result across all in-scope LIMS sites.",
         "contributingTables": [
-          "LIMS_CURITIBA_AMOSTRAS"
+          "silver_lims_annandale",
+          "silver_lims_houston",
+          "silver_lims_curitiba",
+          "silver_lims_buenos_aires"
         ],
         "naturalKeys": [
           {
-            "table": "LIMS_CURITIBA_AMOSTRAS",
+            "table": "silver_lims_annandale",
             "columns": [
-              "sample_id"
+              "sample_id",
+              "test_type"
+            ]
+          },
+          {
+            "table": "silver_lims_houston",
+            "columns": [
+              "sample_id",
+              "test_type"
+            ]
+          },
+          {
+            "table": "silver_lims_curitiba",
+            "columns": [
+              "sample_id",
+              "test_type"
+            ]
+          },
+          {
+            "table": "silver_lims_buenos_aires",
+            "columns": [
+              "sample_id",
+              "test_type"
             ]
           }
         ],
         "surrogateKey": {
           "strategy": "hash",
-          "prefix": "LIMS_",
+          "prefix": "RES_",
           "hashColumns": [
-            "sample_id"
+            "sample_id",
+            "test_type"
           ]
         },
-        "matchRules": [],
-        "survivorship": []
-      },
-      {
-        "id": "7rc3bhyd",
-        "name": "lims_buenos_aires",
-        "description": "Standardized lims buenos_aires",
-        "contributingTables": [
-          "LAB_MUESTRAS_BA"
-        ],
-        "naturalKeys": [
+        "matchRules": [
           {
-            "table": "LAB_MUESTRAS_BA",
-            "columns": [
-              "sample_id"
+            "id": "test_result_sample_houston",
+            "label": "Relate results by sample_id: silver_lims_annandale ↔ silver_lims_houston",
+            "tier": "deterministic",
+            "priority": 1,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "sample_id",
+                "rightTable": "silver_lims_houston",
+                "rightColumn": "sample_id",
+                "operator": "exact"
+              }
+            ]
+          },
+          {
+            "id": "test_result_sample_curitiba",
+            "label": "Relate results by sample_id: silver_lims_annandale ↔ silver_lims_curitiba",
+            "tier": "deterministic",
+            "priority": 2,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "sample_id",
+                "rightTable": "silver_lims_curitiba",
+                "rightColumn": "sample_id",
+                "operator": "exact"
+              }
+            ]
+          },
+          {
+            "id": "test_result_sample_buenos_aires",
+            "label": "Relate results by sample_id: silver_lims_annandale ↔ silver_lims_buenos_aires",
+            "tier": "deterministic",
+            "priority": 3,
+            "predicates": [
+              {
+                "leftTable": "silver_lims_annandale",
+                "leftColumn": "sample_id",
+                "rightTable": "silver_lims_buenos_aires",
+                "rightColumn": "sample_id",
+                "operator": "exact"
+              }
             ]
           }
         ],
-        "surrogateKey": {
-          "strategy": "hash",
-          "prefix": "LIMS_",
-          "hashColumns": [
-            "sample_id"
-          ]
-        },
-        "matchRules": [],
         "survivorship": []
       },
       {
-        "id": "m00ycmjw",
-        "name": "raw_material_master",
-        "description": "Standardized raw material master",
+        "id": "og_pilot_plant_run",
+        "name": "PILOT_PLANT_RUN",
+        "description": "Pilot Plant run identity, bound to the historian only when that physical Silver table is in scope.",
         "contributingTables": [],
         "naturalKeys": [],
         "surrogateKey": {
           "strategy": "hash",
-          "prefix": "RAW__",
+          "prefix": "RUN_",
           "hashColumns": [
-            "legacy_material_id"
+            "run_id"
           ]
         },
         "matchRules": [],
-        "survivorship": []
+        "survivorship": [],
+        "foreignKeyRelationships": []
       }
     ],
-    "referenceData": []
+    "referenceData": [
+      {
+        "id": "governed_astm_ilsac_reference",
+        "name": "governed_astm_ilsac_test_method_reference",
+        "description": "Governed ASTM/ILSAC standard reference, including ASTM D445 viscosity aliases.",
+        "sourceType": "warehouse",
+        "location": "reference_data.governed_astm_ilsac_test_method_reference",
+        "keyColumn": "source_method_name",
+        "valueColumns": [
+          "governed_standard_reference"
+        ],
+        "consumedBy": [
+          "silver_lims_annandale",
+          "silver_lims_houston",
+          "silver_lims_curitiba",
+          "silver_lims_buenos_aires"
+        ]
+      },
+      {
+        "id": "governed_sample_status_reference",
+        "name": "governed_sample_status_reference",
+        "description": "Governed laboratory sample status vocabulary across all four LIMS sites.",
+        "sourceType": "warehouse",
+        "location": "reference_data.governed_sample_status_reference",
+        "keyColumn": "source_value",
+        "valueColumns": [
+          "source_system",
+          "governed_status"
+        ],
+        "consumedBy": [
+          "silver_lims_annandale",
+          "silver_lims_houston",
+          "silver_lims_curitiba",
+          "silver_lims_buenos_aires"
+        ]
+      },
+      {
+        "id": "governed_uom_reference",
+        "name": "governed_uom_reference",
+        "description": "Governed analytical units of measure and measure types.",
+        "sourceType": "warehouse",
+        "location": "reference_data.governed_uom_reference",
+        "keyColumn": "source_unit",
+        "valueColumns": [
+          "governed_unit",
+          "measure_type"
+        ],
+        "consumedBy": [
+          "silver_lims_annandale",
+          "silver_lims_houston",
+          "silver_lims_curitiba",
+          "silver_lims_buenos_aires"
+        ]
+      }
+    ]
   },
   "_foundation": {
-    "changeReason": "Silver configuration changed."
+    "changeReason": "Silver configuration was saved."
   }
 }
