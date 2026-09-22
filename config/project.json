@@ -3,8 +3,8 @@
   "sourceMode": "snowflake",
   "platform": {
     "language": "python",
-    "dataPlatform": "databricks",
+    "dataPlatform": "snowflake",
     "cloudProvider": "azure",
-    "orchestration": "databricks_workflows"
+    "orchestration": "dbt"
   }
 }

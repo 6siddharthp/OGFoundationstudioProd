@@ -1081,14 +1081,29 @@
     }
   ],
   "sourceMode": "snowflake",
-  "reconciledAt": "2026-09-22T15:12:26.403Z",
+  "reconciledAt": "2026-09-22T16:38:27.581Z",
   "reconciledBy": "studioadmin@polestaranalytics.com",
-  "extraColumnChoices": {
-    "LIMS_ANNANDALE_SAMPLES|LAB_NOTEBOOK_REF": false
+  "inclusionAudit": [
+    {
+      "included": false,
+      "changedAt": "2026-09-22T16:38:00.491Z",
+      "changedBy": "studioadmin@polestaranalytics.com",
+      "sourceTable": "LAB_FILE_EXCEL",
+      "sourceSystem": "lims"
+    }
+  ],
+  "instanceInclusion": {
+    "LAB_FILE_EXCEL": false,
+    "LAB_MUESTRAS_BA": true,
+    "RAW_MATERIAL_MASTER": true,
+    "LIMS_HOUSTON_SAMPLES": true,
+    "LIMS_ANNANDALE_SAMPLES": true,
+    "LIMS_CURITIBA_AMOSTRAS": true
   },
-  "lockedAt": "2026-09-22T15:12:44.105Z",
+  "extraColumnChoices": {},
+  "lockedAt": "2026-09-22T16:44:01.278Z",
   "lockedBy": "studioadmin@polestaranalytics.com",
   "_foundation": {
-    "changeReason": "Bronze field decisions changed."
+    "changeReason": "Bronze configuration was saved."
   }
 }
