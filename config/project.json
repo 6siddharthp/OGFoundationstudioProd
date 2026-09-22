@@ -2,9 +2,9 @@
   "projectKey": "oil_gas_downstream_rd",
   "sourceMode": "snowflake",
   "platform": {
-    "language": "sql",
-    "dataPlatform": "snowflake",
+    "language": "python",
+    "dataPlatform": "databricks",
     "cloudProvider": "azure",
-    "orchestration": "dbt"
+    "orchestration": "databricks_workflows"
   }
 }
