@@ -1,5 +1,5 @@
 {
-  "confirmedAt": "2026-09-22T01:30:37.393Z",
+  "confirmedAt": "2026-09-22T13:37:44.362Z",
   "selectedKpis": [
     "Cross-Lab Data Standardization Rate",
     "Cross-Lab Reproducibility Index",
@@ -413,14 +413,6 @@
       ],
       "sites": [
         {
-          "siteId": "buenos-aires",
-          "siteName": "Buenos Aires",
-          "fields": [
-            "comments"
-          ],
-          "reason": "Not captured at source; counted as 1 completeness gap."
-        },
-        {
           "siteId": "curitiba",
           "siteName": "Curitiba",
           "fields": [
@@ -431,9 +423,17 @@
             "storage_location"
           ],
           "reason": "Not captured at source; counted as 5 completeness gaps."
+        },
+        {
+          "siteId": "buenos_aires",
+          "siteName": "Buenos Aires",
+          "fields": [
+            "comments"
+          ],
+          "reason": "Not captured at source; counted as 1 completeness gap."
         }
       ],
-      "summary": "Buenos Aires, Curitiba source gaps are included in the completeness denominator."
+      "summary": "Curitiba, Buenos Aires source gaps are included in the completeness denominator."
     }
   ],
   "_foundation": {
