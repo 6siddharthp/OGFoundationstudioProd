@@ -1,5 +1,5 @@
 {
-  "lockedAt": "2026-09-22T13:28:57.635Z",
+  "lockedAt": "2026-09-22T13:37:26.873Z",
   "config": {
     "tables": [
       {
@@ -1738,17 +1738,8 @@
         "id": "m00ycmjw",
         "name": "raw_material_master",
         "description": "Standardized raw material master",
-        "contributingTables": [
-          "raw_material_master"
-        ],
-        "naturalKeys": [
-          {
-            "table": "raw_material_master",
-            "columns": [
-              "legacy_material_id"
-            ]
-          }
-        ],
+        "contributingTables": [],
+        "naturalKeys": [],
         "surrogateKey": {
           "strategy": "hash",
           "prefix": "RAW__",
@@ -1763,6 +1754,6 @@
     "referenceData": []
   },
   "_foundation": {
-    "changeReason": "Silver configuration was saved."
+    "changeReason": "Silver configuration changed."
   }
 }
