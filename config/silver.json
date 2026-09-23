@@ -1,5 +1,5 @@
 {
-  "lockedAt": "2026-09-23T15:54:02.944Z",
+  "lockedAt": "2026-09-23T16:31:32.832Z",
   "config": {
     "tables": [
       {
@@ -34,11 +34,11 @@
             "pii": false,
             "rules": [
               {
-                "id": "r_5psy0lko",
+                "id": "r_3nvpkaj5",
                 "type": "case_normalize",
                 "pillar": "cleanse",
                 "params": {
-                  "mode": "upper"
+                  "mode": "lower"
                 },
                 "enabled": true
               }
@@ -396,17 +396,7 @@
             "sourceCaptured": true,
             "description": "Reconciled from PRODUCT_LINE",
             "pii": false,
-            "rules": [
-              {
-                "id": "r_zdkhu1go",
-                "type": "case_normalize",
-                "pillar": "cleanse",
-                "params": {
-                  "mode": "upper"
-                },
-                "enabled": true
-              }
-            ]
+            "rules": []
           },
           {
             "bronzeColumn": "material_code",
@@ -760,17 +750,7 @@
             "sourceCaptured": true,
             "description": "Reconciled from PRODUCT_LINE",
             "pii": false,
-            "rules": [
-              {
-                "id": "r_xkm92hlp",
-                "type": "case_normalize",
-                "pillar": "cleanse",
-                "params": {
-                  "mode": "upper"
-                },
-                "enabled": true
-              }
-            ]
+            "rules": []
           },
           {
             "bronzeColumn": "material_code",
@@ -849,11 +829,9 @@
             "bronzeColumn": "analyst_id",
             "name": "analyst_id",
             "dataType": "VARCHAR(255)",
-            "nullable": true,
-            "sqlOverride": "NULL AS \"analyst_id\"",
-            "sourceCaptured": false,
-            "absenceReason": "Not captured at source",
-            "description": "Not captured at source",
+            "nullable": false,
+            "sourceCaptured": true,
+            "description": "Reconciled from TECNICO_ID",
             "pii": false,
             "rules": []
           },
@@ -1136,17 +1114,7 @@
             "sourceCaptured": true,
             "description": "Reconciled from PRODUCT_LINE",
             "pii": false,
-            "rules": [
-              {
-                "id": "r_3kuhtet6",
-                "type": "case_normalize",
-                "pillar": "cleanse",
-                "params": {
-                  "mode": "upper"
-                },
-                "enabled": true
-              }
-            ]
+            "rules": []
           },
           {
             "bronzeColumn": "material_code",
@@ -2692,8 +2660,5 @@
         ]
       }
     ]
-  },
-  "_foundation": {
-    "changeReason": "Silver configuration was saved."
   }
 }
