@@ -1,5 +1,5 @@
 {
-  "confirmedAt": "2026-09-23T16:32:10.655Z",
+  "confirmedAt": "2026-09-23T17:23:00.918Z",
   "lockedBy": "studioadmin@polestaranalytics.com",
   "selectedKpis": [
     "Cross-Lab Data Standardization Rate",
@@ -10,7 +10,9 @@
     "Site-Pair Agreement by Method",
     "Test Method Standardization Rate",
     "Unmatched Sample Rate",
+    "Backlog Aging Index",
     "First-Time-Right Rate",
+    "Instrument Throughput",
     "LIMS Data Completeness",
     "Lab Capacity Utilization",
     "Retest Rate",
