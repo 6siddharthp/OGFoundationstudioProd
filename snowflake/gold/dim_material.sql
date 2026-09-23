@@ -1,5 +1,6 @@
 -- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
+-- updated by sid in prod run
 CREATE TABLE IF NOT EXISTS OGFS_DEMO.GOLD.dim_material (
   material_sk NUMBER AUTOINCREMENT PRIMARY KEY,
   material_key VARCHAR,
