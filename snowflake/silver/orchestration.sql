@@ -16,8 +16,7 @@ CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.quarantine_records (
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.not_captured_at_source AS
 SELECT column1::VARCHAR source_table,column2::VARCHAR site_code,column3::VARCHAR site_name,
        column4::VARCHAR canonical_field,column5::VARCHAR reason
-FROM VALUES (''LIMS_CURITIBA_AMOSTRAS'',''curitiba'',''Curitiba'',''analyst_id'',''Not captured at source''),
-(''LIMS_CURITIBA_AMOSTRAS'',''curitiba'',''Curitiba'',''project_reference'',''Not captured at source''),
+FROM VALUES (''LIMS_CURITIBA_AMOSTRAS'',''curitiba'',''Curitiba'',''project_reference'',''Not captured at source''),
 (''LIMS_CURITIBA_AMOSTRAS'',''curitiba'',''Curitiba'',''spec_lower_limit'',''Not captured at source''),
 (''LIMS_CURITIBA_AMOSTRAS'',''curitiba'',''Curitiba'',''spec_upper_limit'',''Not captured at source''),
 (''LIMS_CURITIBA_AMOSTRAS'',''curitiba'',''Curitiba'',''approval_date'',''Not captured at source''),
@@ -103,7 +102,6 @@ FROM VALUES (''Complete'',''Annandale'',''Completed''),
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.unit_registry AS
 SELECT column1::VARCHAR canonical_code,column2::VARCHAR display_name,column3::VARCHAR quantity_type,column4::VARCHAR accepted_alias
 FROM VALUES (''CST'',''Centistokes'',''viscosity'',''CST''),
-(''CST'',''Centistokes'',''viscosity'',''cSt''),
 (''CST'',''Centistokes'',''viscosity'',''centistokes''),
 (''CST'',''Centistokes'',''viscosity'',''mm2/s''),
 (''CST'',''Centistokes'',''viscosity'',''mm²/s''),
@@ -111,13 +109,11 @@ FROM VALUES (''CST'',''Centistokes'',''viscosity'',''CST''),
 (''SUS'',''Saybolt Universal Seconds'',''viscosity'',''SSU''),
 (''SUS'',''Saybolt Universal Seconds'',''viscosity'',''Saybolt Universal Seconds''),
 (''DEGC'',''Degrees Celsius'',''temperature'',''DEGC''),
-(''DEGC'',''Degrees Celsius'',''temperature'',''degC''),
 (''DEGC'',''Degrees Celsius'',''temperature'',''C''),
 (''DEGC'',''Degrees Celsius'',''temperature'',''Celsius''),
 (''DEGC'',''Degrees Celsius'',''temperature'',''deg C''),
 (''DEGC'',''Degrees Celsius'',''temperature'',''°C''),
 (''DEGF'',''Degrees Fahrenheit'',''temperature'',''DEGF''),
-(''DEGF'',''Degrees Fahrenheit'',''temperature'',''degF''),
 (''DEGF'',''Degrees Fahrenheit'',''temperature'',''F''),
 (''DEGF'',''Degrees Fahrenheit'',''temperature'',''Fahrenheit''),
 (''DEGF'',''Degrees Fahrenheit'',''temperature'',''deg F''),
@@ -139,35 +135,27 @@ FROM VALUES (''CST'',''Centistokes'',''viscosity'',''CST''),
 (''API'',''API gravity'',''specific_gravity'',''deg API''),
 (''API'',''API gravity'',''specific_gravity'',''°API''),
 (''KG'',''Kilogram'',''mass'',''KG''),
-(''KG'',''Kilogram'',''mass'',''kg''),
 (''KG'',''Kilogram'',''mass'',''kilogram''),
 (''KG'',''Kilogram'',''mass'',''kilograms''),
 (''G'',''Gram'',''mass'',''G''),
-(''G'',''Gram'',''mass'',''g''),
 (''G'',''Gram'',''mass'',''gram''),
 (''G'',''Gram'',''mass'',''grams''),
 (''MG'',''Milligram'',''mass'',''MG''),
-(''MG'',''Milligram'',''mass'',''mg''),
 (''MG'',''Milligram'',''mass'',''milligram''),
 (''MG'',''Milligram'',''mass'',''milligrams''),
 (''LB'',''Pound'',''mass'',''LB''),
-(''LB'',''Pound'',''mass'',''lb''),
 (''LB'',''Pound'',''mass'',''lbs''),
 (''LB'',''Pound'',''mass'',''pound''),
 (''LB'',''Pound'',''mass'',''pounds''),
 (''L'',''Litre'',''volume'',''L''),
-(''L'',''Litre'',''volume'',''l''),
 (''L'',''Litre'',''volume'',''litre''),
 (''L'',''Litre'',''volume'',''liter''),
 (''L'',''Litre'',''volume'',''litres''),
 (''L'',''Litre'',''volume'',''liters''),
 (''ML'',''Millilitre'',''volume'',''ML''),
-(''ML'',''Millilitre'',''volume'',''mL''),
-(''ML'',''Millilitre'',''volume'',''ml''),
 (''ML'',''Millilitre'',''volume'',''millilitre''),
 (''ML'',''Millilitre'',''volume'',''milliliter''),
 (''M3'',''Cubic metre'',''volume'',''M3''),
-(''M3'',''Cubic metre'',''volume'',''m3''),
 (''M3'',''Cubic metre'',''volume'',''m³''),
 (''M3'',''Cubic metre'',''volume'',''cubic metre''),
 (''M3'',''Cubic metre'',''volume'',''cubic meter''),
@@ -176,14 +164,11 @@ FROM VALUES (''CST'',''Centistokes'',''viscosity'',''CST''),
 (''US_GAL'',''US gallon'',''volume'',''gal US''),
 (''US_GAL'',''US gallon'',''volume'',''US gallon''),
 (''BAR'',''Bar'',''pressure'',''BAR''),
-(''BAR'',''Bar'',''pressure'',''bar''),
 (''BAR'',''Bar'',''pressure'',''bars''),
 (''KPA'',''Kilopascal'',''pressure'',''KPA''),
-(''KPA'',''Kilopascal'',''pressure'',''kPa''),
 (''KPA'',''Kilopascal'',''pressure'',''kilopascal''),
 (''KPA'',''Kilopascal'',''pressure'',''kilopascals''),
 (''PSI'',''Pounds per square inch'',''pressure'',''PSI''),
-(''PSI'',''Pounds per square inch'',''pressure'',''psi''),
 (''PSI'',''Pounds per square inch'',''pressure'',''lb/in2''),
 (''MG_KG'',''Milligrams per kilogram'',''concentration'',''MG_KG''),
 (''MG_KG'',''Milligrams per kilogram'',''concentration'',''mg/kg''),
@@ -193,7 +178,6 @@ FROM VALUES (''CST'',''Centistokes'',''viscosity'',''CST''),
 (''PERCENT'',''Percent by mass'',''concentration'',''wt%''),
 (''PERCENT'',''Percent by mass'',''concentration'',''mass %''),
 (''PPM'',''Parts per million'',''sulfur_trace'',''PPM''),
-(''PPM'',''Parts per million'',''sulfur_trace'',''ppm''),
 (''PPM'',''Parts per million'',''sulfur_trace'',''mg/kg''),
 (''PPM'',''Parts per million'',''sulfur_trace'',''mg kg-1''),
 (''SULFUR_PERCENT'',''Sulphur percent by mass'',''sulfur_trace'',''SULFUR_PERCENT''),
@@ -245,9 +229,9 @@ FROM VALUES (''sus_to_cst'',''viscosity'',''SUS'',''CST'',''formula'',NULL,NULL,
   EXECUTE IMMEDIATE '-- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.silver_lims_annandale AS
-SELECT row_data.source_row_number,
+ SELECT row_data.source_row_number,
   row_data.sample_id AS sample_id,
-  UPPER(row_data.product_line) AS product_line,
+  LOWER(row_data.product_line) AS product_line,
   row_data.material_code AS material_code,
   row_data.batch_lot_number AS batch_lot_number,
   row_data.container_id AS container_id,
@@ -264,7 +248,15 @@ SELECT row_data.source_row_number,
   row_data.submitter AS submitter,
   row_data.project_reference AS project_reference,
   row_data.result_value AS result_value,
-  COALESCE((SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
+  COALESCE((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
   row_data.spec_lower_limit AS spec_lower_limit,
   row_data.spec_upper_limit AS spec_upper_limit,
   COALESCE((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))), NULL) AS sample_status,
@@ -275,41 +267,57 @@ SELECT row_data.source_row_number,
   row_data.comments AS comments,
   row_data.site_code AS site_code,
   ''lims_annandale_samples'' AS source_table
-FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lims_annandale_samples AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data';
+FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lims_annandale_samples AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data';
   EXECUTE IMMEDIATE '-- foundation:stage 3
 INSERT INTO OGFS_DEMO.SILVER.quarantine_records
   (source_table,source_row_number,rule_name,reason,site_code,review_status,source_data,quarantined_at)
 SELECT source_table,source_row_number,rule_name,reason,site_code,review_status,source_data,CURRENT_TIMESTAMP()
 FROM (
 SELECT ''LIMS_ANNANDALE_SAMPLES'' source_table, row_data.source_row_number,
-       ''test_method_vocabulary'' rule_name, ''test_type: Code lookup failed'' reason,
+        ''test_method_vocabulary'' rule_name, ''test_type: Code lookup failed'' reason,
        ''annandale'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_annandale_samples AS row_data
-WHERE (SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL
+ WHERE (SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL
 UNION ALL
 
 SELECT ''LIMS_ANNANDALE_SAMPLES'' source_table, row_data.source_row_number,
-       ''uom_vocabulary'' rule_name, ''result_unit: Code lookup failed'' reason,
+        ''uom_vocabulary'' rule_name, ''Unit cannot be resolved in unit_registry: ''||COALESCE(TO_VARCHAR(row_data.result_unit),''(missing)'')||'' (test method: ''||COALESCE(TO_VARCHAR(row_data.test_type),''(missing)'')||'')'' reason,
        ''annandale'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_annandale_samples AS row_data
-WHERE (SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
+ WHERE (SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
 UNION ALL
 
 SELECT ''LIMS_ANNANDALE_SAMPLES'' source_table, row_data.source_row_number,
-       ''status_vocabulary'' rule_name, ''sample_status: Code lookup failed'' reason,
+        ''status_vocabulary'' rule_name, ''sample_status: Code lookup failed'' reason,
        ''annandale'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_annandale_samples AS row_data
-WHERE (SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL)
+ WHERE (SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL)
 QUALIFY ROW_NUMBER() OVER (PARTITION BY source_table,source_row_number,rule_name ORDER BY reason)=1';
   EXECUTE IMMEDIATE '-- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.silver_lims_houston AS
-SELECT row_data.source_row_number,
+ SELECT row_data.source_row_number,
   row_data.sample_id AS sample_id,
-  UPPER(row_data.product_line) AS product_line,
+  row_data.product_line AS product_line,
   row_data.material_code AS material_code,
   row_data.batch_lot_number AS batch_lot_number,
   row_data.container_id AS container_id,
@@ -326,7 +334,15 @@ SELECT row_data.source_row_number,
   row_data.submitter AS submitter,
   row_data.project_reference AS project_reference,
   row_data.result_value AS result_value,
-  COALESCE((SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
+  COALESCE((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
   row_data.spec_lower_limit AS spec_lower_limit,
   row_data.spec_upper_limit AS spec_upper_limit,
   COALESCE((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))), NULL) AS sample_status,
@@ -337,48 +353,64 @@ SELECT row_data.source_row_number,
   row_data.comments AS comments,
   row_data.site_code AS site_code,
   ''lims_houston_samples'' AS source_table
-FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lims_houston_samples AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data';
+FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lims_houston_samples AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data';
   EXECUTE IMMEDIATE '-- foundation:stage 3
 INSERT INTO OGFS_DEMO.SILVER.quarantine_records
   (source_table,source_row_number,rule_name,reason,site_code,review_status,source_data,quarantined_at)
 SELECT source_table,source_row_number,rule_name,reason,site_code,review_status,source_data,CURRENT_TIMESTAMP()
 FROM (
 SELECT ''LIMS_HOUSTON_SAMPLES'' source_table, row_data.source_row_number,
-       ''test_method_vocabulary'' rule_name, ''test_type: Code lookup failed'' reason,
+        ''test_method_vocabulary'' rule_name, ''test_type: Code lookup failed'' reason,
        ''houston'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_houston_samples AS row_data
-WHERE (SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL
+ WHERE (SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL
 UNION ALL
 
 SELECT ''LIMS_HOUSTON_SAMPLES'' source_table, row_data.source_row_number,
-       ''uom_vocabulary'' rule_name, ''result_unit: Code lookup failed'' reason,
+        ''uom_vocabulary'' rule_name, ''Unit cannot be resolved in unit_registry: ''||COALESCE(TO_VARCHAR(row_data.result_unit),''(missing)'')||'' (test method: ''||COALESCE(TO_VARCHAR(row_data.test_type),''(missing)'')||'')'' reason,
        ''houston'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_houston_samples AS row_data
-WHERE (SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
+ WHERE (SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
 UNION ALL
 
 SELECT ''LIMS_HOUSTON_SAMPLES'' source_table, row_data.source_row_number,
-       ''status_vocabulary'' rule_name, ''sample_status: Code lookup failed'' reason,
+        ''status_vocabulary'' rule_name, ''sample_status: Code lookup failed'' reason,
        ''houston'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_houston_samples AS row_data
-WHERE (SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL)
+ WHERE (SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL)
 QUALIFY ROW_NUMBER() OVER (PARTITION BY source_table,source_row_number,rule_name ORDER BY reason)=1';
   EXECUTE IMMEDIATE '-- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.silver_lims_curitiba AS
-SELECT row_data.source_row_number,
+ SELECT row_data.source_row_number,
   row_data.sample_id AS sample_id,
-  UPPER(row_data.product_line) AS product_line,
+  row_data.product_line AS product_line,
   row_data.material_code AS material_code,
   row_data.batch_lot_number AS batch_lot_number,
   row_data.container_id AS container_id,
   COALESCE((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))), NULL) AS test_type,
   row_data.test_method_version AS test_method_version,
   row_data.instrument_id AS instrument_id,
-  NULL AS analyst_id,
+  row_data.analyst_id AS analyst_id,
   row_data.reviewer_id AS reviewer_id,
   row_data.date_requested AS date_requested,
   row_data.date_received AS date_received,
@@ -388,7 +420,15 @@ SELECT row_data.source_row_number,
   row_data.submitter AS submitter,
   NULL AS project_reference,
   row_data.result_value AS result_value,
-  COALESCE((SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
+  COALESCE((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
   NULL AS spec_lower_limit,
   NULL AS spec_upper_limit,
   COALESCE((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))), NULL) AS sample_status,
@@ -399,41 +439,57 @@ SELECT row_data.source_row_number,
   row_data.comments AS comments,
   row_data.site_code AS site_code,
   ''lims_curitiba_amostras'' AS source_table
-FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lims_curitiba_amostras AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data';
+FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lims_curitiba_amostras AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data';
   EXECUTE IMMEDIATE '-- foundation:stage 3
 INSERT INTO OGFS_DEMO.SILVER.quarantine_records
   (source_table,source_row_number,rule_name,reason,site_code,review_status,source_data,quarantined_at)
 SELECT source_table,source_row_number,rule_name,reason,site_code,review_status,source_data,CURRENT_TIMESTAMP()
 FROM (
 SELECT ''LIMS_CURITIBA_AMOSTRAS'' source_table, row_data.source_row_number,
-       ''test_method_vocabulary'' rule_name, ''test_type: Code lookup failed'' reason,
+        ''test_method_vocabulary'' rule_name, ''test_type: Code lookup failed'' reason,
        ''curitiba'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_curitiba_amostras AS row_data
-WHERE (SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL
+ WHERE (SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL
 UNION ALL
 
 SELECT ''LIMS_CURITIBA_AMOSTRAS'' source_table, row_data.source_row_number,
-       ''uom_vocabulary'' rule_name, ''result_unit: Code lookup failed'' reason,
+        ''uom_vocabulary'' rule_name, ''Unit cannot be resolved in unit_registry: ''||COALESCE(TO_VARCHAR(row_data.result_unit),''(missing)'')||'' (test method: ''||COALESCE(TO_VARCHAR(row_data.test_type),''(missing)'')||'')'' reason,
        ''curitiba'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_curitiba_amostras AS row_data
-WHERE (SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
+ WHERE (SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
 UNION ALL
 
 SELECT ''LIMS_CURITIBA_AMOSTRAS'' source_table, row_data.source_row_number,
-       ''status_vocabulary'' rule_name, ''sample_status: Code lookup failed'' reason,
+        ''status_vocabulary'' rule_name, ''sample_status: Code lookup failed'' reason,
        ''curitiba'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_curitiba_amostras AS row_data
-WHERE (SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL)
+ WHERE (SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL)
 QUALIFY ROW_NUMBER() OVER (PARTITION BY source_table,source_row_number,rule_name ORDER BY reason)=1';
   EXECUTE IMMEDIATE '-- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.silver_lims_buenos_aires AS
-SELECT row_data.source_row_number,
+ SELECT row_data.source_row_number,
   row_data.sample_id AS sample_id,
-  UPPER(row_data.product_line) AS product_line,
+  row_data.product_line AS product_line,
   row_data.material_code AS material_code,
   row_data.batch_lot_number AS batch_lot_number,
   row_data.container_id AS container_id,
@@ -450,7 +506,15 @@ SELECT row_data.source_row_number,
   row_data.submitter AS submitter,
   row_data.project_reference AS project_reference,
   row_data.result_value AS result_value,
-  COALESCE((SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
+  COALESCE((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
   row_data.spec_lower_limit AS spec_lower_limit,
   row_data.spec_upper_limit AS spec_upper_limit,
   COALESCE((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))), NULL) AS sample_status,
@@ -461,39 +525,55 @@ SELECT row_data.source_row_number,
   NULL AS comments,
   row_data.site_code AS site_code,
   ''lab_muestras_ba'' AS source_table
-FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lab_muestras_ba AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data';
+FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lab_muestras_ba AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data';
   EXECUTE IMMEDIATE '-- foundation:stage 3
 INSERT INTO OGFS_DEMO.SILVER.quarantine_records
   (source_table,source_row_number,rule_name,reason,site_code,review_status,source_data,quarantined_at)
 SELECT source_table,source_row_number,rule_name,reason,site_code,review_status,source_data,CURRENT_TIMESTAMP()
 FROM (
 SELECT ''LAB_MUESTRAS_BA'' source_table, row_data.source_row_number,
-       ''test_method_vocabulary'' rule_name, ''test_type: Code lookup failed'' reason,
+        ''test_method_vocabulary'' rule_name, ''test_type: Code lookup failed'' reason,
        ''buenos_aires'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lab_muestras_ba AS row_data
-WHERE (SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL
+ WHERE (SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL
 UNION ALL
 
 SELECT ''LAB_MUESTRAS_BA'' source_table, row_data.source_row_number,
-       ''uom_vocabulary'' rule_name, ''result_unit: Code lookup failed'' reason,
+        ''uom_vocabulary'' rule_name, ''Unit cannot be resolved in unit_registry: ''||COALESCE(TO_VARCHAR(row_data.result_unit),''(missing)'')||'' (test method: ''||COALESCE(TO_VARCHAR(row_data.test_type),''(missing)'')||'')'' reason,
        ''buenos_aires'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lab_muestras_ba AS row_data
-WHERE (SELECT MAX(ref.governed_unit) FROM OGFS_DEMO.SILVER.governed_uom_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_unit AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
+ WHERE (SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    ELSE NULL
+  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
 UNION ALL
 
 SELECT ''LAB_MUESTRAS_BA'' source_table, row_data.source_row_number,
-       ''status_vocabulary'' rule_name, ''sample_status: Code lookup failed'' reason,
+        ''status_vocabulary'' rule_name, ''sample_status: Code lookup failed'' reason,
        ''buenos_aires'' site_code,
        ''quarantined'' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lab_muestras_ba AS row_data
-WHERE (SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL)
+ WHERE (SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL)
 QUALIFY ROW_NUMBER() OVER (PARTITION BY source_table,source_row_number,rule_name ORDER BY reason)=1';
   EXECUTE IMMEDIATE '-- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.silver_raw_material_master AS
-SELECT row_data.source_row_number,
+ SELECT row_data.source_row_number,
   row_data.canonical_material_name AS canonical_material_name,
   row_data.business_line AS business_line,
   row_data.source_material_code AS source_material_code,
@@ -750,18 +830,19 @@ CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.conformed_test_result AS SELECT ''RES_'
   IFF(s.spec_lower_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_lower_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_lower_limit) < 100, 0.226*(s.spec_lower_limit) - 195/(s.spec_lower_limit), 0.220*(s.spec_lower_limit) - 135/(s.spec_lower_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_lower_limit) < 20.6, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 176.28))/0.452, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_lower_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_lower_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_lower_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_lower_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_lower_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_lower_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_lower_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_lower_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_lower_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_lower_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_lower_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_lower_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_lower_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_lower_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_lower_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_lower_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_lower_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_lower_limit) * 10000) END)) spec_lower_limit, IFF(s.spec_upper_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_upper_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_upper_limit) < 100, 0.226*(s.spec_upper_limit) - 195/(s.spec_upper_limit), 0.220*(s.spec_upper_limit) - 135/(s.spec_upper_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_upper_limit) < 20.6, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 176.28))/0.452, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_upper_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_upper_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_upper_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_upper_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_upper_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_upper_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_upper_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_upper_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_upper_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_upper_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_upper_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_upper_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_upper_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_upper_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_upper_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_upper_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_upper_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_upper_limit) * 10000) END)) spec_upper_limit,
   IFF(IFF(u.canonical_code=qt.standard_unit,s.result_value,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.result_value) < 100, 0.226*(s.result_value) - 195/(s.result_value), 0.220*(s.result_value) - 135/(s.result_value)) WHEN ''cst_to_sus'' THEN IFF((s.result_value) < 20.6, ((s.result_value) + SQRT((s.result_value)*(s.result_value) + 176.28))/0.452, ((s.result_value) + SQRT((s.result_value)*(s.result_value) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.result_value) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.result_value) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.result_value) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.result_value) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.result_value) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.result_value) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.result_value)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.result_value)-131.5 WHEN ''g_to_kg'' THEN ((s.result_value) * 0.001) WHEN ''kg_to_g'' THEN ((s.result_value) * 1000) WHEN ''mg_to_kg'' THEN ((s.result_value) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.result_value) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.result_value) * 0.001) WHEN ''l_to_ml'' THEN ((s.result_value) * 1000) WHEN ''m3_to_l'' THEN ((s.result_value) * 1000) WHEN ''usgal_to_l'' THEN ((s.result_value) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.result_value) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.result_value) * 100) WHEN ''psi_to_bar'' THEN ((s.result_value) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.result_value) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.result_value) * 10000) END) BETWEEN IFF(s.spec_lower_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_lower_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_lower_limit) < 100, 0.226*(s.spec_lower_limit) - 195/(s.spec_lower_limit), 0.220*(s.spec_lower_limit) - 135/(s.spec_lower_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_lower_limit) < 20.6, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 176.28))/0.452, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_lower_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_lower_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_lower_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_lower_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_lower_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_lower_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_lower_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_lower_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_lower_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_lower_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_lower_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_lower_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_lower_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_lower_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_lower_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_lower_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_lower_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_lower_limit) * 10000) END)) AND IFF(s.spec_upper_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_upper_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_upper_limit) < 100, 0.226*(s.spec_upper_limit) - 195/(s.spec_upper_limit), 0.220*(s.spec_upper_limit) - 135/(s.spec_upper_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_upper_limit) < 20.6, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 176.28))/0.452, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_upper_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_upper_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_upper_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_upper_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_upper_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_upper_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_upper_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_upper_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_upper_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_upper_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_upper_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_upper_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_upper_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_upper_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_upper_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_upper_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_upper_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_upper_limit) * 10000) END)),TRUE,FALSE) within_spec,
   CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END quantity_type, u.canonical_code recorded_unit_code,
   u.canonical_code<>qt.standard_unit conversion_applied,
   IFF(u.canonical_code=qt.standard_unit,''identity'',cr.rule_id) conversion_rule_id,
   ''silver_lims_annandale'' source_system
   FROM OGFS_DEMO.SILVER.silver_lims_annandale s
+   LEFT JOIN OGFS_DEMO.BRONZE.lims_annandale_samples b ON b.source_row_number=s.source_row_number
   LEFT JOIN OGFS_DEMO.SILVER.material_identity_map mi ON LOWER(mi.source_material_code)=LOWER(s.material_code)
   LEFT JOIN OGFS_DEMO.SILVER.conformed_material m ON m.material_key=mi.material_key
   LEFT JOIN OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference mr
@@ -770,31 +851,31 @@ CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.conformed_test_result AS SELECT ''RES_'
     ON tm.governed_standard_reference=COALESCE(mr.governed_standard_reference,s.test_type)
   LEFT JOIN OGFS_DEMO.SILVER.unit_registry u
     ON u.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND LOWER(TRIM(u.accepted_alias))=LOWER(TRIM(s.result_unit))
   LEFT JOIN OGFS_DEMO.SILVER.quantity_types qt ON qt.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END
   LEFT JOIN OGFS_DEMO.SILVER.unit_conversion_rules cr
     ON cr.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND cr.from_unit=u.canonical_code AND cr.to_unit=qt.standard_unit
   WHERE s.result_value IS NOT NULL AND u.canonical_code IS NOT NULL AND qt.standard_unit IS NOT NULL
@@ -808,18 +889,19 @@ SELECT ''RES_'' || MD5(''silver_lims_houston:'' || s.source_row_number) test_res
   IFF(s.spec_lower_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_lower_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_lower_limit) < 100, 0.226*(s.spec_lower_limit) - 195/(s.spec_lower_limit), 0.220*(s.spec_lower_limit) - 135/(s.spec_lower_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_lower_limit) < 20.6, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 176.28))/0.452, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_lower_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_lower_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_lower_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_lower_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_lower_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_lower_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_lower_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_lower_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_lower_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_lower_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_lower_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_lower_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_lower_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_lower_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_lower_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_lower_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_lower_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_lower_limit) * 10000) END)) spec_lower_limit, IFF(s.spec_upper_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_upper_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_upper_limit) < 100, 0.226*(s.spec_upper_limit) - 195/(s.spec_upper_limit), 0.220*(s.spec_upper_limit) - 135/(s.spec_upper_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_upper_limit) < 20.6, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 176.28))/0.452, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_upper_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_upper_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_upper_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_upper_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_upper_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_upper_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_upper_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_upper_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_upper_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_upper_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_upper_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_upper_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_upper_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_upper_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_upper_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_upper_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_upper_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_upper_limit) * 10000) END)) spec_upper_limit,
   IFF(IFF(u.canonical_code=qt.standard_unit,s.result_value,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.result_value) < 100, 0.226*(s.result_value) - 195/(s.result_value), 0.220*(s.result_value) - 135/(s.result_value)) WHEN ''cst_to_sus'' THEN IFF((s.result_value) < 20.6, ((s.result_value) + SQRT((s.result_value)*(s.result_value) + 176.28))/0.452, ((s.result_value) + SQRT((s.result_value)*(s.result_value) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.result_value) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.result_value) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.result_value) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.result_value) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.result_value) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.result_value) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.result_value)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.result_value)-131.5 WHEN ''g_to_kg'' THEN ((s.result_value) * 0.001) WHEN ''kg_to_g'' THEN ((s.result_value) * 1000) WHEN ''mg_to_kg'' THEN ((s.result_value) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.result_value) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.result_value) * 0.001) WHEN ''l_to_ml'' THEN ((s.result_value) * 1000) WHEN ''m3_to_l'' THEN ((s.result_value) * 1000) WHEN ''usgal_to_l'' THEN ((s.result_value) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.result_value) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.result_value) * 100) WHEN ''psi_to_bar'' THEN ((s.result_value) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.result_value) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.result_value) * 10000) END) BETWEEN IFF(s.spec_lower_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_lower_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_lower_limit) < 100, 0.226*(s.spec_lower_limit) - 195/(s.spec_lower_limit), 0.220*(s.spec_lower_limit) - 135/(s.spec_lower_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_lower_limit) < 20.6, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 176.28))/0.452, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_lower_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_lower_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_lower_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_lower_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_lower_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_lower_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_lower_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_lower_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_lower_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_lower_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_lower_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_lower_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_lower_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_lower_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_lower_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_lower_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_lower_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_lower_limit) * 10000) END)) AND IFF(s.spec_upper_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_upper_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_upper_limit) < 100, 0.226*(s.spec_upper_limit) - 195/(s.spec_upper_limit), 0.220*(s.spec_upper_limit) - 135/(s.spec_upper_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_upper_limit) < 20.6, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 176.28))/0.452, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_upper_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_upper_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_upper_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_upper_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_upper_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_upper_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_upper_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_upper_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_upper_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_upper_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_upper_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_upper_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_upper_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_upper_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_upper_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_upper_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_upper_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_upper_limit) * 10000) END)),TRUE,FALSE) within_spec,
   CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END quantity_type, u.canonical_code recorded_unit_code,
   u.canonical_code<>qt.standard_unit conversion_applied,
   IFF(u.canonical_code=qt.standard_unit,''identity'',cr.rule_id) conversion_rule_id,
   ''silver_lims_houston'' source_system
   FROM OGFS_DEMO.SILVER.silver_lims_houston s
+   LEFT JOIN OGFS_DEMO.BRONZE.lims_houston_samples b ON b.source_row_number=s.source_row_number
   LEFT JOIN OGFS_DEMO.SILVER.material_identity_map mi ON LOWER(mi.source_material_code)=LOWER(s.material_code)
   LEFT JOIN OGFS_DEMO.SILVER.conformed_material m ON m.material_key=mi.material_key
   LEFT JOIN OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference mr
@@ -828,31 +910,31 @@ SELECT ''RES_'' || MD5(''silver_lims_houston:'' || s.source_row_number) test_res
     ON tm.governed_standard_reference=COALESCE(mr.governed_standard_reference,s.test_type)
   LEFT JOIN OGFS_DEMO.SILVER.unit_registry u
     ON u.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND LOWER(TRIM(u.accepted_alias))=LOWER(TRIM(s.result_unit))
   LEFT JOIN OGFS_DEMO.SILVER.quantity_types qt ON qt.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END
   LEFT JOIN OGFS_DEMO.SILVER.unit_conversion_rules cr
     ON cr.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND cr.from_unit=u.canonical_code AND cr.to_unit=qt.standard_unit
   WHERE s.result_value IS NOT NULL AND u.canonical_code IS NOT NULL AND qt.standard_unit IS NOT NULL
@@ -866,18 +948,19 @@ SELECT ''RES_'' || MD5(''silver_lims_curitiba:'' || s.source_row_number) test_re
   IFF(s.spec_lower_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_lower_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_lower_limit) < 100, 0.226*(s.spec_lower_limit) - 195/(s.spec_lower_limit), 0.220*(s.spec_lower_limit) - 135/(s.spec_lower_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_lower_limit) < 20.6, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 176.28))/0.452, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_lower_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_lower_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_lower_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_lower_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_lower_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_lower_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_lower_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_lower_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_lower_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_lower_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_lower_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_lower_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_lower_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_lower_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_lower_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_lower_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_lower_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_lower_limit) * 10000) END)) spec_lower_limit, IFF(s.spec_upper_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_upper_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_upper_limit) < 100, 0.226*(s.spec_upper_limit) - 195/(s.spec_upper_limit), 0.220*(s.spec_upper_limit) - 135/(s.spec_upper_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_upper_limit) < 20.6, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 176.28))/0.452, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_upper_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_upper_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_upper_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_upper_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_upper_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_upper_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_upper_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_upper_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_upper_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_upper_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_upper_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_upper_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_upper_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_upper_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_upper_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_upper_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_upper_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_upper_limit) * 10000) END)) spec_upper_limit,
   IFF(IFF(u.canonical_code=qt.standard_unit,s.result_value,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.result_value) < 100, 0.226*(s.result_value) - 195/(s.result_value), 0.220*(s.result_value) - 135/(s.result_value)) WHEN ''cst_to_sus'' THEN IFF((s.result_value) < 20.6, ((s.result_value) + SQRT((s.result_value)*(s.result_value) + 176.28))/0.452, ((s.result_value) + SQRT((s.result_value)*(s.result_value) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.result_value) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.result_value) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.result_value) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.result_value) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.result_value) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.result_value) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.result_value)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.result_value)-131.5 WHEN ''g_to_kg'' THEN ((s.result_value) * 0.001) WHEN ''kg_to_g'' THEN ((s.result_value) * 1000) WHEN ''mg_to_kg'' THEN ((s.result_value) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.result_value) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.result_value) * 0.001) WHEN ''l_to_ml'' THEN ((s.result_value) * 1000) WHEN ''m3_to_l'' THEN ((s.result_value) * 1000) WHEN ''usgal_to_l'' THEN ((s.result_value) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.result_value) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.result_value) * 100) WHEN ''psi_to_bar'' THEN ((s.result_value) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.result_value) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.result_value) * 10000) END) BETWEEN IFF(s.spec_lower_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_lower_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_lower_limit) < 100, 0.226*(s.spec_lower_limit) - 195/(s.spec_lower_limit), 0.220*(s.spec_lower_limit) - 135/(s.spec_lower_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_lower_limit) < 20.6, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 176.28))/0.452, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_lower_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_lower_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_lower_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_lower_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_lower_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_lower_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_lower_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_lower_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_lower_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_lower_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_lower_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_lower_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_lower_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_lower_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_lower_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_lower_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_lower_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_lower_limit) * 10000) END)) AND IFF(s.spec_upper_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_upper_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_upper_limit) < 100, 0.226*(s.spec_upper_limit) - 195/(s.spec_upper_limit), 0.220*(s.spec_upper_limit) - 135/(s.spec_upper_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_upper_limit) < 20.6, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 176.28))/0.452, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_upper_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_upper_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_upper_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_upper_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_upper_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_upper_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_upper_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_upper_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_upper_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_upper_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_upper_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_upper_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_upper_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_upper_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_upper_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_upper_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_upper_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_upper_limit) * 10000) END)),TRUE,FALSE) within_spec,
   CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END quantity_type, u.canonical_code recorded_unit_code,
   u.canonical_code<>qt.standard_unit conversion_applied,
   IFF(u.canonical_code=qt.standard_unit,''identity'',cr.rule_id) conversion_rule_id,
   ''silver_lims_curitiba'' source_system
   FROM OGFS_DEMO.SILVER.silver_lims_curitiba s
+   LEFT JOIN OGFS_DEMO.BRONZE.lims_curitiba_amostras b ON b.source_row_number=s.source_row_number
   LEFT JOIN OGFS_DEMO.SILVER.material_identity_map mi ON LOWER(mi.source_material_code)=LOWER(s.material_code)
   LEFT JOIN OGFS_DEMO.SILVER.conformed_material m ON m.material_key=mi.material_key
   LEFT JOIN OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference mr
@@ -886,31 +969,31 @@ SELECT ''RES_'' || MD5(''silver_lims_curitiba:'' || s.source_row_number) test_re
     ON tm.governed_standard_reference=COALESCE(mr.governed_standard_reference,s.test_type)
   LEFT JOIN OGFS_DEMO.SILVER.unit_registry u
     ON u.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND LOWER(TRIM(u.accepted_alias))=LOWER(TRIM(s.result_unit))
   LEFT JOIN OGFS_DEMO.SILVER.quantity_types qt ON qt.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END
   LEFT JOIN OGFS_DEMO.SILVER.unit_conversion_rules cr
     ON cr.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND cr.from_unit=u.canonical_code AND cr.to_unit=qt.standard_unit
   WHERE s.result_value IS NOT NULL AND u.canonical_code IS NOT NULL AND qt.standard_unit IS NOT NULL
@@ -924,18 +1007,19 @@ SELECT ''RES_'' || MD5(''silver_lims_buenos_aires:'' || s.source_row_number) tes
   IFF(s.spec_lower_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_lower_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_lower_limit) < 100, 0.226*(s.spec_lower_limit) - 195/(s.spec_lower_limit), 0.220*(s.spec_lower_limit) - 135/(s.spec_lower_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_lower_limit) < 20.6, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 176.28))/0.452, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_lower_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_lower_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_lower_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_lower_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_lower_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_lower_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_lower_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_lower_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_lower_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_lower_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_lower_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_lower_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_lower_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_lower_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_lower_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_lower_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_lower_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_lower_limit) * 10000) END)) spec_lower_limit, IFF(s.spec_upper_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_upper_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_upper_limit) < 100, 0.226*(s.spec_upper_limit) - 195/(s.spec_upper_limit), 0.220*(s.spec_upper_limit) - 135/(s.spec_upper_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_upper_limit) < 20.6, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 176.28))/0.452, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_upper_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_upper_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_upper_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_upper_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_upper_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_upper_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_upper_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_upper_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_upper_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_upper_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_upper_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_upper_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_upper_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_upper_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_upper_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_upper_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_upper_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_upper_limit) * 10000) END)) spec_upper_limit,
   IFF(IFF(u.canonical_code=qt.standard_unit,s.result_value,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.result_value) < 100, 0.226*(s.result_value) - 195/(s.result_value), 0.220*(s.result_value) - 135/(s.result_value)) WHEN ''cst_to_sus'' THEN IFF((s.result_value) < 20.6, ((s.result_value) + SQRT((s.result_value)*(s.result_value) + 176.28))/0.452, ((s.result_value) + SQRT((s.result_value)*(s.result_value) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.result_value) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.result_value) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.result_value) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.result_value) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.result_value) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.result_value) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.result_value)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.result_value)-131.5 WHEN ''g_to_kg'' THEN ((s.result_value) * 0.001) WHEN ''kg_to_g'' THEN ((s.result_value) * 1000) WHEN ''mg_to_kg'' THEN ((s.result_value) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.result_value) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.result_value) * 0.001) WHEN ''l_to_ml'' THEN ((s.result_value) * 1000) WHEN ''m3_to_l'' THEN ((s.result_value) * 1000) WHEN ''usgal_to_l'' THEN ((s.result_value) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.result_value) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.result_value) * 100) WHEN ''psi_to_bar'' THEN ((s.result_value) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.result_value) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.result_value) * 10000) END) BETWEEN IFF(s.spec_lower_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_lower_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_lower_limit) < 100, 0.226*(s.spec_lower_limit) - 195/(s.spec_lower_limit), 0.220*(s.spec_lower_limit) - 135/(s.spec_lower_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_lower_limit) < 20.6, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 176.28))/0.452, ((s.spec_lower_limit) + SQRT((s.spec_lower_limit)*(s.spec_lower_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_lower_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_lower_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_lower_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_lower_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_lower_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_lower_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_lower_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_lower_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_lower_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_lower_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_lower_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_lower_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_lower_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_lower_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_lower_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_lower_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_lower_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_lower_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_lower_limit) * 10000) END)) AND IFF(s.spec_upper_limit IS NULL,NULL,IFF(u.canonical_code=qt.standard_unit,s.spec_upper_limit,CASE cr.rule_id WHEN ''sus_to_cst'' THEN IFF((s.spec_upper_limit) < 100, 0.226*(s.spec_upper_limit) - 195/(s.spec_upper_limit), 0.220*(s.spec_upper_limit) - 135/(s.spec_upper_limit)) WHEN ''cst_to_sus'' THEN IFF((s.spec_upper_limit) < 20.6, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 176.28))/0.452, ((s.spec_upper_limit) + SQRT((s.spec_upper_limit)*(s.spec_upper_limit) + 118.8))/0.44) WHEN ''f_to_c'' THEN ((s.spec_upper_limit) * 0.5555555555555556 + -17.77777777777778) WHEN ''c_to_f'' THEN ((s.spec_upper_limit) * 1.8 + 32) WHEN ''k_to_c'' THEN ((s.spec_upper_limit) * 1 + -273.15) WHEN ''c_to_k'' THEN ((s.spec_upper_limit) * 1 + 273.15) WHEN ''gcm3_to_kgm3'' THEN ((s.spec_upper_limit) * 1000) WHEN ''kgm3_to_gcm3'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''api_to_sg'' THEN 141.5/((s.spec_upper_limit)+131.5) WHEN ''sg_to_api'' THEN 141.5/(s.spec_upper_limit)-131.5 WHEN ''g_to_kg'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''kg_to_g'' THEN ((s.spec_upper_limit) * 1000) WHEN ''mg_to_kg'' THEN ((s.spec_upper_limit) * 0.000001) WHEN ''lb_to_kg'' THEN ((s.spec_upper_limit) * 0.45359237) WHEN ''ml_to_l'' THEN ((s.spec_upper_limit) * 0.001) WHEN ''l_to_ml'' THEN ((s.spec_upper_limit) * 1000) WHEN ''m3_to_l'' THEN ((s.spec_upper_limit) * 1000) WHEN ''usgal_to_l'' THEN ((s.spec_upper_limit) * 3.785411784) WHEN ''kpa_to_bar'' THEN ((s.spec_upper_limit) * 0.01) WHEN ''bar_to_kpa'' THEN ((s.spec_upper_limit) * 100) WHEN ''psi_to_bar'' THEN ((s.spec_upper_limit) * 0.0689475729) WHEN ''percent_to_mgkg'' THEN ((s.spec_upper_limit) * 10000) WHEN ''sulfur_percent_to_ppm'' THEN ((s.spec_upper_limit) * 10000) END)),TRUE,FALSE) within_spec,
   CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END quantity_type, u.canonical_code recorded_unit_code,
   u.canonical_code<>qt.standard_unit conversion_applied,
   IFF(u.canonical_code=qt.standard_unit,''identity'',cr.rule_id) conversion_rule_id,
   ''silver_lims_buenos_aires'' source_system
   FROM OGFS_DEMO.SILVER.silver_lims_buenos_aires s
+   LEFT JOIN OGFS_DEMO.BRONZE.lab_muestras_ba b ON b.source_row_number=s.source_row_number
   LEFT JOIN OGFS_DEMO.SILVER.material_identity_map mi ON LOWER(mi.source_material_code)=LOWER(s.material_code)
   LEFT JOIN OGFS_DEMO.SILVER.conformed_material m ON m.material_key=mi.material_key
   LEFT JOIN OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference mr
@@ -944,31 +1028,31 @@ SELECT ''RES_'' || MD5(''silver_lims_buenos_aires:'' || s.source_row_number) tes
     ON tm.governed_standard_reference=COALESCE(mr.governed_standard_reference,s.test_type)
   LEFT JOIN OGFS_DEMO.SILVER.unit_registry u
     ON u.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND LOWER(TRIM(u.accepted_alias))=LOWER(TRIM(s.result_unit))
   LEFT JOIN OGFS_DEMO.SILVER.quantity_types qt ON qt.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END
   LEFT JOIN OGFS_DEMO.SILVER.unit_conversion_rules cr
     ON cr.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND cr.from_unit=u.canonical_code AND cr.to_unit=qt.standard_unit
   WHERE s.result_value IS NOT NULL AND u.canonical_code IS NOT NULL AND qt.standard_unit IS NOT NULL
@@ -980,213 +1064,217 @@ INSERT INTO OGFS_DEMO.SILVER.quarantine_records
 SELECT source_table,source_row_number,rule_name,reason,site_code,review_status,source_data,CURRENT_TIMESTAMP()
 FROM (SELECT ''silver_lims_annandale'' source_table,s.source_row_number source_row_number,''uom_conversion'' rule_name,
       CASE WHEN CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END IS NULL THEN ''Quantity type is unresolved for test method: ''||COALESCE(TO_VARCHAR(s.test_type),''(missing)'')
            WHEN u.canonical_code IS NULL THEN ''Unit is unrecognised: ''||COALESCE(TO_VARCHAR(s.result_unit),''(missing)'')
            ELSE ''Unit is recognised but no conversion path exists from ''||u.canonical_code||'' to ''||qt.standard_unit END reason,
       ''annandale'' site_code,''quarantined'' review_status,OBJECT_CONSTRUCT_KEEP_NULL(s.*) source_data
     FROM OGFS_DEMO.SILVER.silver_lims_annandale s
+    LEFT JOIN OGFS_DEMO.BRONZE.lims_annandale_samples b ON b.source_row_number=s.source_row_number
     LEFT JOIN OGFS_DEMO.SILVER.unit_registry u
       ON u.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND LOWER(TRIM(u.accepted_alias))=LOWER(TRIM(s.result_unit))
     LEFT JOIN OGFS_DEMO.SILVER.quantity_types qt ON qt.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END
     LEFT JOIN OGFS_DEMO.SILVER.unit_conversion_rules cr
       ON cr.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND cr.from_unit=u.canonical_code AND cr.to_unit=qt.standard_unit
     WHERE s.result_value IS NOT NULL AND (CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END IS NULL OR u.canonical_code IS NULL OR qt.standard_unit IS NULL OR (u.canonical_code<>qt.standard_unit AND cr.rule_id IS NULL))
 UNION ALL
 SELECT ''silver_lims_houston'' source_table,s.source_row_number source_row_number,''uom_conversion'' rule_name,
       CASE WHEN CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END IS NULL THEN ''Quantity type is unresolved for test method: ''||COALESCE(TO_VARCHAR(s.test_type),''(missing)'')
            WHEN u.canonical_code IS NULL THEN ''Unit is unrecognised: ''||COALESCE(TO_VARCHAR(s.result_unit),''(missing)'')
            ELSE ''Unit is recognised but no conversion path exists from ''||u.canonical_code||'' to ''||qt.standard_unit END reason,
       ''houston'' site_code,''quarantined'' review_status,OBJECT_CONSTRUCT_KEEP_NULL(s.*) source_data
     FROM OGFS_DEMO.SILVER.silver_lims_houston s
+    LEFT JOIN OGFS_DEMO.BRONZE.lims_houston_samples b ON b.source_row_number=s.source_row_number
     LEFT JOIN OGFS_DEMO.SILVER.unit_registry u
       ON u.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND LOWER(TRIM(u.accepted_alias))=LOWER(TRIM(s.result_unit))
     LEFT JOIN OGFS_DEMO.SILVER.quantity_types qt ON qt.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END
     LEFT JOIN OGFS_DEMO.SILVER.unit_conversion_rules cr
       ON cr.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND cr.from_unit=u.canonical_code AND cr.to_unit=qt.standard_unit
     WHERE s.result_value IS NOT NULL AND (CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END IS NULL OR u.canonical_code IS NULL OR qt.standard_unit IS NULL OR (u.canonical_code<>qt.standard_unit AND cr.rule_id IS NULL))
 UNION ALL
 SELECT ''silver_lims_curitiba'' source_table,s.source_row_number source_row_number,''uom_conversion'' rule_name,
       CASE WHEN CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END IS NULL THEN ''Quantity type is unresolved for test method: ''||COALESCE(TO_VARCHAR(s.test_type),''(missing)'')
            WHEN u.canonical_code IS NULL THEN ''Unit is unrecognised: ''||COALESCE(TO_VARCHAR(s.result_unit),''(missing)'')
            ELSE ''Unit is recognised but no conversion path exists from ''||u.canonical_code||'' to ''||qt.standard_unit END reason,
       ''curitiba'' site_code,''quarantined'' review_status,OBJECT_CONSTRUCT_KEEP_NULL(s.*) source_data
     FROM OGFS_DEMO.SILVER.silver_lims_curitiba s
+    LEFT JOIN OGFS_DEMO.BRONZE.lims_curitiba_amostras b ON b.source_row_number=s.source_row_number
     LEFT JOIN OGFS_DEMO.SILVER.unit_registry u
       ON u.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND LOWER(TRIM(u.accepted_alias))=LOWER(TRIM(s.result_unit))
     LEFT JOIN OGFS_DEMO.SILVER.quantity_types qt ON qt.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END
     LEFT JOIN OGFS_DEMO.SILVER.unit_conversion_rules cr
       ON cr.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND cr.from_unit=u.canonical_code AND cr.to_unit=qt.standard_unit
     WHERE s.result_value IS NOT NULL AND (CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END IS NULL OR u.canonical_code IS NULL OR qt.standard_unit IS NULL OR (u.canonical_code<>qt.standard_unit AND cr.rule_id IS NULL))
 UNION ALL
 SELECT ''silver_lims_buenos_aires'' source_table,s.source_row_number source_row_number,''uom_conversion'' rule_name,
       CASE WHEN CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END IS NULL THEN ''Quantity type is unresolved for test method: ''||COALESCE(TO_VARCHAR(s.test_type),''(missing)'')
            WHEN u.canonical_code IS NULL THEN ''Unit is unrecognised: ''||COALESCE(TO_VARCHAR(s.result_unit),''(missing)'')
            ELSE ''Unit is recognised but no conversion path exists from ''||u.canonical_code||'' to ''||qt.standard_unit END reason,
       ''buenos_aires'' site_code,''quarantined'' review_status,OBJECT_CONSTRUCT_KEEP_NULL(s.*) source_data
     FROM OGFS_DEMO.SILVER.silver_lims_buenos_aires s
+    LEFT JOIN OGFS_DEMO.BRONZE.lab_muestras_ba b ON b.source_row_number=s.source_row_number
     LEFT JOIN OGFS_DEMO.SILVER.unit_registry u
       ON u.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND LOWER(TRIM(u.accepted_alias))=LOWER(TRIM(s.result_unit))
     LEFT JOIN OGFS_DEMO.SILVER.quantity_types qt ON qt.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END
     LEFT JOIN OGFS_DEMO.SILVER.unit_conversion_rules cr
       ON cr.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END AND cr.from_unit=u.canonical_code AND cr.to_unit=qt.standard_unit
     WHERE s.result_value IS NOT NULL AND (CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
-    WHEN REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(s.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%APIGRAVITY%'' THEN ''specific_gravity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%DENSITY%'' THEN ''density''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%VISC%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''KV100'',''CCS'',''VI'') THEN ''viscosity''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%FLASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%POURPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%CLOUDPOINT%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ANILINEPOINT%'' THEN ''temperature''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULFUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%SULPHUR%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WEARMETALS%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ICP%'' THEN ''sulfur_trace''
+    WHEN REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%WATER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ASH%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%ACIDNUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') LIKE ''%BASENUMBER%'' OR REGEXP_REPLACE(UPPER(TRIM(b.test_type)), ''[^A-Z0-9]'', '''') IN (''TAN'',''TBN'') THEN ''concentration''
     ELSE NULL
   END IS NULL OR u.canonical_code IS NULL OR qt.standard_unit IS NULL OR (u.canonical_code<>qt.standard_unit AND cr.rule_id IS NULL)))';
   EXECUTE IMMEDIATE '-- Foundation Studio · Snowflake execution SQL
@@ -1194,7 +1282,8 @@ SELECT ''silver_lims_buenos_aires'' source_table,s.source_row_number source_row_
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.unrecognized_units AS
 SELECT source_data:result_unit::VARCHAR recorded_unit,reason,site_code,COUNT(*) occurrence_count
 FROM OGFS_DEMO.SILVER.quarantine_records
-WHERE rule_name=''uom_conversion'' AND reason LIKE ''Unit is unrecognised:%''
+ WHERE (rule_name=''uom_conversion'' AND reason LIKE ''Unit is unrecognised:%'')
+    OR (rule_name=''uom_vocabulary'' AND reason LIKE ''Unit cannot be resolved in unit_registry:%'')
 GROUP BY recorded_unit,reason,site_code';
   RETURN 'ok';
 END;

@@ -104,6 +104,7 @@ SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS source_row_number,
        TEST_TYPE::VARCHAR AS test_type,
        TEST_METHOD_VERSION::VARCHAR AS test_method_version,
        INSTRUMENT_ID::VARCHAR AS instrument_id,
+       TECNICO_ID::VARCHAR AS analyst_id,
        REVIEWER_ID::VARCHAR AS reviewer_id,
        DATA_SOLICITADA::VARCHAR AS date_requested,
        DATE_RECEIVED::VARCHAR AS date_received,
@@ -179,7 +180,7 @@ FROM OGFS_DEMO.SOURCE.RAW_MATERIAL_MASTER';
 END;
 $$;
 CREATE OR REPLACE TASK OGFS_DEMO.BRONZE.bronze_pipeline_task
-  WAREHOUSE = OGFS_DEMO_WH SCHEDULE = 'USING CRON 0 6 * * * America/Chicago'
+  WAREHOUSE = OGFS_DEMO_WH SCHEDULE = 'USING CRON 0 4 * * * America/Chicago'
   USER_TASK_TIMEOUT_MS = 3600000
   SUSPEND_TASK_AFTER_NUM_FAILURES = 2
 AS CALL OGFS_DEMO.BRONZE.run_bronze_pipeline();
