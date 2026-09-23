@@ -1289,7 +1289,7 @@ GROUP BY recorded_unit,reason,site_code';
 END;
 $$;
 CREATE OR REPLACE TASK OGFS_DEMO.SILVER.silver_pipeline_task
-  WAREHOUSE = OGFS_DEMO_WH AFTER OGFS_DEMO.BRONZE.bronze_pipeline_task
+  WAREHOUSE = OGFS_DEMO_WH
   USER_TASK_TIMEOUT_MS = 3600000
-  SUSPEND_TASK_AFTER_NUM_FAILURES = 2
+  AFTER OGFS_DEMO.BRONZE.bronze_pipeline_task
 AS CALL OGFS_DEMO.SILVER.run_silver_pipeline();
