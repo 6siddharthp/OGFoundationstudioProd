@@ -1,5 +1,5 @@
 {
-  "lockedAt": "2026-09-22T16:46:33.781Z",
+  "lockedAt": "2026-09-23T15:54:02.944Z",
   "config": {
     "tables": [
       {
@@ -34,7 +34,7 @@
             "pii": false,
             "rules": [
               {
-                "id": "r_qm0nro9z",
+                "id": "r_5psy0lko",
                 "type": "case_normalize",
                 "pillar": "cleanse",
                 "params": {
@@ -396,7 +396,17 @@
             "sourceCaptured": true,
             "description": "Reconciled from PRODUCT_LINE",
             "pii": false,
-            "rules": []
+            "rules": [
+              {
+                "id": "r_zdkhu1go",
+                "type": "case_normalize",
+                "pillar": "cleanse",
+                "params": {
+                  "mode": "upper"
+                },
+                "enabled": true
+              }
+            ]
           },
           {
             "bronzeColumn": "material_code",
@@ -750,7 +760,17 @@
             "sourceCaptured": true,
             "description": "Reconciled from PRODUCT_LINE",
             "pii": false,
-            "rules": []
+            "rules": [
+              {
+                "id": "r_xkm92hlp",
+                "type": "case_normalize",
+                "pillar": "cleanse",
+                "params": {
+                  "mode": "upper"
+                },
+                "enabled": true
+              }
+            ]
           },
           {
             "bronzeColumn": "material_code",
@@ -829,9 +849,11 @@
             "bronzeColumn": "analyst_id",
             "name": "analyst_id",
             "dataType": "VARCHAR(255)",
-            "nullable": false,
-            "sourceCaptured": true,
-            "description": "Reconciled from TECNICO_ID",
+            "nullable": true,
+            "sqlOverride": "NULL AS \"analyst_id\"",
+            "sourceCaptured": false,
+            "absenceReason": "Not captured at source",
+            "description": "Not captured at source",
             "pii": false,
             "rules": []
           },
@@ -1114,7 +1136,17 @@
             "sourceCaptured": true,
             "description": "Reconciled from PRODUCT_LINE",
             "pii": false,
-            "rules": []
+            "rules": [
+              {
+                "id": "r_3kuhtet6",
+                "type": "case_normalize",
+                "pillar": "cleanse",
+                "params": {
+                  "mode": "upper"
+                },
+                "enabled": true
+              }
+            ]
           },
           {
             "bronzeColumn": "material_code",
@@ -1640,7 +1672,513 @@
       "_source_file",
       "_batch_id",
       "_record_hash"
-    ]
+    ],
+    "uomConversionConfig": {
+      "quantityTypes": [
+        {
+          "id": "viscosity",
+          "displayName": "Kinematic viscosity",
+          "standardUnit": "CST"
+        },
+        {
+          "id": "temperature",
+          "displayName": "Temperature",
+          "standardUnit": "DEGC"
+        },
+        {
+          "id": "density",
+          "displayName": "Density",
+          "standardUnit": "KG_M3"
+        },
+        {
+          "id": "specific_gravity",
+          "displayName": "Specific gravity / API gravity",
+          "standardUnit": "SG"
+        },
+        {
+          "id": "mass",
+          "displayName": "Mass",
+          "standardUnit": "KG"
+        },
+        {
+          "id": "volume",
+          "displayName": "Volume",
+          "standardUnit": "L"
+        },
+        {
+          "id": "pressure",
+          "displayName": "Pressure",
+          "standardUnit": "BAR"
+        },
+        {
+          "id": "concentration",
+          "displayName": "Concentration",
+          "standardUnit": "MG_KG"
+        },
+        {
+          "id": "sulfur_trace",
+          "displayName": "Sulphur or trace content",
+          "standardUnit": "PPM"
+        }
+      ],
+      "units": [
+        {
+          "code": "CST",
+          "displayName": "Centistokes",
+          "quantityType": "viscosity",
+          "aliases": [
+            "cSt",
+            "centistokes",
+            "mm2/s",
+            "mm²/s"
+          ]
+        },
+        {
+          "code": "SUS",
+          "displayName": "Saybolt Universal Seconds",
+          "quantityType": "viscosity",
+          "aliases": [
+            "SUS",
+            "SSU",
+            "Saybolt Universal Seconds"
+          ]
+        },
+        {
+          "code": "DEGC",
+          "displayName": "Degrees Celsius",
+          "quantityType": "temperature",
+          "aliases": [
+            "degC",
+            "C",
+            "Celsius",
+            "deg C",
+            "°C"
+          ]
+        },
+        {
+          "code": "DEGF",
+          "displayName": "Degrees Fahrenheit",
+          "quantityType": "temperature",
+          "aliases": [
+            "degF",
+            "F",
+            "Fahrenheit",
+            "deg F",
+            "°F"
+          ]
+        },
+        {
+          "code": "K",
+          "displayName": "Kelvin",
+          "quantityType": "temperature",
+          "aliases": [
+            "K",
+            "Kelvin"
+          ]
+        },
+        {
+          "code": "KG_M3",
+          "displayName": "Kilograms per cubic metre",
+          "quantityType": "density",
+          "aliases": [
+            "kg/m3",
+            "kg/m³",
+            "kg m-3"
+          ]
+        },
+        {
+          "code": "G_CM3",
+          "displayName": "Grams per cubic centimetre",
+          "quantityType": "density",
+          "aliases": [
+            "g/cm3",
+            "g/cm³"
+          ]
+        },
+        {
+          "code": "SG",
+          "displayName": "Specific gravity",
+          "quantityType": "specific_gravity",
+          "aliases": [
+            "SG",
+            "specific gravity",
+            "relative density"
+          ]
+        },
+        {
+          "code": "API",
+          "displayName": "API gravity",
+          "quantityType": "specific_gravity",
+          "aliases": [
+            "API",
+            "API gravity",
+            "deg API",
+            "°API"
+          ]
+        },
+        {
+          "code": "KG",
+          "displayName": "Kilogram",
+          "quantityType": "mass",
+          "aliases": [
+            "kg",
+            "kilogram",
+            "kilograms"
+          ]
+        },
+        {
+          "code": "G",
+          "displayName": "Gram",
+          "quantityType": "mass",
+          "aliases": [
+            "g",
+            "gram",
+            "grams"
+          ]
+        },
+        {
+          "code": "MG",
+          "displayName": "Milligram",
+          "quantityType": "mass",
+          "aliases": [
+            "mg",
+            "milligram",
+            "milligrams"
+          ]
+        },
+        {
+          "code": "LB",
+          "displayName": "Pound",
+          "quantityType": "mass",
+          "aliases": [
+            "lb",
+            "lbs",
+            "pound",
+            "pounds"
+          ]
+        },
+        {
+          "code": "L",
+          "displayName": "Litre",
+          "quantityType": "volume",
+          "aliases": [
+            "L",
+            "l",
+            "litre",
+            "liter",
+            "litres",
+            "liters"
+          ]
+        },
+        {
+          "code": "ML",
+          "displayName": "Millilitre",
+          "quantityType": "volume",
+          "aliases": [
+            "mL",
+            "ml",
+            "millilitre",
+            "milliliter"
+          ]
+        },
+        {
+          "code": "M3",
+          "displayName": "Cubic metre",
+          "quantityType": "volume",
+          "aliases": [
+            "m3",
+            "m³",
+            "cubic metre",
+            "cubic meter"
+          ]
+        },
+        {
+          "code": "US_GAL",
+          "displayName": "US gallon",
+          "quantityType": "volume",
+          "aliases": [
+            "US gal",
+            "gal US",
+            "US gallon"
+          ]
+        },
+        {
+          "code": "BAR",
+          "displayName": "Bar",
+          "quantityType": "pressure",
+          "aliases": [
+            "bar",
+            "bars"
+          ]
+        },
+        {
+          "code": "KPA",
+          "displayName": "Kilopascal",
+          "quantityType": "pressure",
+          "aliases": [
+            "kPa",
+            "kilopascal",
+            "kilopascals"
+          ]
+        },
+        {
+          "code": "PSI",
+          "displayName": "Pounds per square inch",
+          "quantityType": "pressure",
+          "aliases": [
+            "psi",
+            "PSI",
+            "lb/in2"
+          ]
+        },
+        {
+          "code": "MG_KG",
+          "displayName": "Milligrams per kilogram",
+          "quantityType": "concentration",
+          "aliases": [
+            "mg/kg",
+            "ppm"
+          ]
+        },
+        {
+          "code": "PERCENT",
+          "displayName": "Percent by mass",
+          "quantityType": "concentration",
+          "aliases": [
+            "%",
+            "wt%",
+            "mass %"
+          ]
+        },
+        {
+          "code": "PPM",
+          "displayName": "Parts per million",
+          "quantityType": "sulfur_trace",
+          "aliases": [
+            "ppm",
+            "mg/kg",
+            "mg kg-1"
+          ]
+        },
+        {
+          "code": "SULFUR_PERCENT",
+          "displayName": "Sulphur percent by mass",
+          "quantityType": "sulfur_trace",
+          "aliases": [
+            "% sulfur",
+            "% sulphur",
+            "wt% sulfur",
+            "wt% sulphur"
+          ]
+        }
+      ],
+      "conversions": [
+        {
+          "id": "sus_to_cst",
+          "quantityType": "viscosity",
+          "fromUnit": "SUS",
+          "toUnit": "CST",
+          "kind": "formula",
+          "expression": "if(x < 100, 0.226*x - 195/x, 0.220*x - 135/x)",
+          "inverseRuleId": "cst_to_sus"
+        },
+        {
+          "id": "cst_to_sus",
+          "quantityType": "viscosity",
+          "fromUnit": "CST",
+          "toUnit": "SUS",
+          "kind": "formula",
+          "expression": "if(x < 20.6, (x + sqrt(x*x + 176.28))/0.452, (x + sqrt(x*x + 118.8))/0.44)",
+          "inverseRuleId": "sus_to_cst"
+        },
+        {
+          "id": "f_to_c",
+          "quantityType": "temperature",
+          "fromUnit": "DEGF",
+          "toUnit": "DEGC",
+          "kind": "linear_offset",
+          "factor": 0.5555555555555556,
+          "offset": -17.77777777777778,
+          "inverseRuleId": "c_to_f"
+        },
+        {
+          "id": "c_to_f",
+          "quantityType": "temperature",
+          "fromUnit": "DEGC",
+          "toUnit": "DEGF",
+          "kind": "linear_offset",
+          "factor": 1.8,
+          "offset": 32,
+          "inverseRuleId": "f_to_c"
+        },
+        {
+          "id": "k_to_c",
+          "quantityType": "temperature",
+          "fromUnit": "K",
+          "toUnit": "DEGC",
+          "kind": "linear_offset",
+          "factor": 1,
+          "offset": -273.15,
+          "inverseRuleId": "c_to_k"
+        },
+        {
+          "id": "c_to_k",
+          "quantityType": "temperature",
+          "fromUnit": "DEGC",
+          "toUnit": "K",
+          "kind": "linear_offset",
+          "factor": 1,
+          "offset": 273.15,
+          "inverseRuleId": "k_to_c"
+        },
+        {
+          "id": "gcm3_to_kgm3",
+          "quantityType": "density",
+          "fromUnit": "G_CM3",
+          "toUnit": "KG_M3",
+          "kind": "linear_factor",
+          "factor": 1000,
+          "inverseRuleId": "kgm3_to_gcm3"
+        },
+        {
+          "id": "kgm3_to_gcm3",
+          "quantityType": "density",
+          "fromUnit": "KG_M3",
+          "toUnit": "G_CM3",
+          "kind": "linear_factor",
+          "factor": 0.001,
+          "inverseRuleId": "gcm3_to_kgm3"
+        },
+        {
+          "id": "api_to_sg",
+          "quantityType": "specific_gravity",
+          "fromUnit": "API",
+          "toUnit": "SG",
+          "kind": "formula",
+          "expression": "141.5/(x+131.5)",
+          "inverseRuleId": "sg_to_api"
+        },
+        {
+          "id": "sg_to_api",
+          "quantityType": "specific_gravity",
+          "fromUnit": "SG",
+          "toUnit": "API",
+          "kind": "formula",
+          "expression": "141.5/x-131.5",
+          "inverseRuleId": "api_to_sg"
+        },
+        {
+          "id": "g_to_kg",
+          "quantityType": "mass",
+          "fromUnit": "G",
+          "toUnit": "KG",
+          "kind": "linear_factor",
+          "factor": 0.001,
+          "inverseRuleId": "kg_to_g"
+        },
+        {
+          "id": "kg_to_g",
+          "quantityType": "mass",
+          "fromUnit": "KG",
+          "toUnit": "G",
+          "kind": "linear_factor",
+          "factor": 1000,
+          "inverseRuleId": "g_to_kg"
+        },
+        {
+          "id": "mg_to_kg",
+          "quantityType": "mass",
+          "fromUnit": "MG",
+          "toUnit": "KG",
+          "kind": "linear_factor",
+          "factor": 0.000001
+        },
+        {
+          "id": "lb_to_kg",
+          "quantityType": "mass",
+          "fromUnit": "LB",
+          "toUnit": "KG",
+          "kind": "linear_factor",
+          "factor": 0.45359237
+        },
+        {
+          "id": "ml_to_l",
+          "quantityType": "volume",
+          "fromUnit": "ML",
+          "toUnit": "L",
+          "kind": "linear_factor",
+          "factor": 0.001,
+          "inverseRuleId": "l_to_ml"
+        },
+        {
+          "id": "l_to_ml",
+          "quantityType": "volume",
+          "fromUnit": "L",
+          "toUnit": "ML",
+          "kind": "linear_factor",
+          "factor": 1000,
+          "inverseRuleId": "ml_to_l"
+        },
+        {
+          "id": "m3_to_l",
+          "quantityType": "volume",
+          "fromUnit": "M3",
+          "toUnit": "L",
+          "kind": "linear_factor",
+          "factor": 1000
+        },
+        {
+          "id": "usgal_to_l",
+          "quantityType": "volume",
+          "fromUnit": "US_GAL",
+          "toUnit": "L",
+          "kind": "linear_factor",
+          "factor": 3.785411784
+        },
+        {
+          "id": "kpa_to_bar",
+          "quantityType": "pressure",
+          "fromUnit": "KPA",
+          "toUnit": "BAR",
+          "kind": "linear_factor",
+          "factor": 0.01,
+          "inverseRuleId": "bar_to_kpa"
+        },
+        {
+          "id": "bar_to_kpa",
+          "quantityType": "pressure",
+          "fromUnit": "BAR",
+          "toUnit": "KPA",
+          "kind": "linear_factor",
+          "factor": 100,
+          "inverseRuleId": "kpa_to_bar"
+        },
+        {
+          "id": "psi_to_bar",
+          "quantityType": "pressure",
+          "fromUnit": "PSI",
+          "toUnit": "BAR",
+          "kind": "linear_factor",
+          "factor": 0.0689475729
+        },
+        {
+          "id": "percent_to_mgkg",
+          "quantityType": "concentration",
+          "fromUnit": "PERCENT",
+          "toUnit": "MG_KG",
+          "kind": "linear_factor",
+          "factor": 10000
+        },
+        {
+          "id": "sulfur_percent_to_ppm",
+          "quantityType": "sulfur_trace",
+          "fromUnit": "SULFUR_PERCENT",
+          "toUnit": "PPM",
+          "kind": "linear_factor",
+          "factor": 10000
+        }
+      ]
+    }
   },
   "identity": {
     "entities": [
