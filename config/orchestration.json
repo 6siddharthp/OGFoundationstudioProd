@@ -5,7 +5,7 @@
     "kind": "daily",
     "interval": 1,
     "intervalUnit": "hour",
-    "time": "04:00",
+    "time": "03:00",
     "cron": "0 6 * * *",
     "timeZone": "America/Chicago"
   },
@@ -14,7 +14,7 @@
       "kind": "daily",
       "interval": 1,
       "intervalUnit": "hour",
-      "time": "04:00",
+      "time": "03:00",
       "cron": "0 6 * * *",
       "timeZone": "America/Chicago"
     },
@@ -85,7 +85,7 @@
     "windowHours": 24
   },
   "exceptions": {},
-  "lockedAt": "2026-09-23T16:32:44.433Z",
+  "lockedAt": "2026-09-23T17:23:30.044Z",
   "graph": {
     "nodes": [
       {

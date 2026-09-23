@@ -1,5 +1,6 @@
 -- Foundation Studio · generated orchestration
 CREATE SCHEMA IF NOT EXISTS OGFS_DEMO.ORCHESTRATION;
+
 CREATE TABLE IF NOT EXISTS OGFS_DEMO.BRONZE.orchestration_run_log (
   step_name VARCHAR, source_table VARCHAR, status VARCHAR, rows_written NUMBER,
   started_at TIMESTAMP_TZ, completed_at TIMESTAMP_TZ, query_id VARCHAR
@@ -181,7 +182,7 @@ FROM OGFS_DEMO.SOURCE.RAW_MATERIAL_MASTER';
 END;
 $$;
 CREATE OR REPLACE TASK OGFS_DEMO.ORCHESTRATION.bronze_pipeline_task
-  WAREHOUSE = OGFS_DEMO_WH SCHEDULE = 'USING CRON 0 4 * * * America/Chicago'
+  WAREHOUSE = OGFS_DEMO_WH SCHEDULE = 'USING CRON 0 3 * * * America/Chicago'
   USER_TASK_TIMEOUT_MS = 3600000
   SUSPEND_TASK_AFTER_NUM_FAILURES = 2
 AS CALL OGFS_DEMO.BRONZE.run_bronze_pipeline();

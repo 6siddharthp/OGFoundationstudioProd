@@ -122,7 +122,9 @@ FROM VALUES (''Cross-Lab Data Standardization Rate'',TRUE,NULL,''W10='',''''),
 (''Site-Pair Agreement by Method'',TRUE,NULL,''W10='',''''),
 (''Test Method Standardization Rate'',TRUE,NULL,''W10='',''''),
 (''Unmatched Sample Rate'',TRUE,NULL,''W10='',''''),
+(''Backlog Aging Index'',TRUE,NULL,''W10='',''''),
 (''First-Time-Right Rate'',TRUE,NULL,''W3sic2l0ZUlkIjoiY3VyaXRpYmEiLCJzaXRlTmFtZSI6IkN1cml0aWJhIiwiZmllbGRzIjpbInNwZWNfbG93ZXJfbGltaXQiLCJzcGVjX3VwcGVyX2xpbWl0Il0sInJlYXNvbiI6IkV4Y2x1ZGVkIGJlY2F1c2Ugc3BlY19sb3dlcl9saW1pdCBhbmQgc3BlY191cHBlcl9saW1pdCBhcmUgbm90IGNhcHR1cmVkIGF0IHNvdXJjZS4ifV0='',''Excludes Curitiba from this KPI calculation.''),
+(''Instrument Throughput'',TRUE,NULL,''W10='',''''),
 (''LIMS Data Completeness'',TRUE,NULL,''W3sic2l0ZUlkIjoiY3VyaXRpYmEiLCJzaXRlTmFtZSI6IkN1cml0aWJhIiwiZmllbGRzIjpbInByb2plY3RfcmVmZXJlbmNlIiwic3BlY19sb3dlcl9saW1pdCIsInNwZWNfdXBwZXJfbGltaXQiLCJhcHByb3ZhbF9kYXRlIiwic3RvcmFnZV9sb2NhdGlvbiJdLCJyZWFzb24iOiJOb3QgY2FwdHVyZWQgYXQgc291cmNlOyBjb3VudGVkIGFzIDUgY29tcGxldGVuZXNzIGdhcHMuIn0seyJzaXRlSWQiOiJidWVub3NfYWlyZXMiLCJzaXRlTmFtZSI6IkJ1ZW5vcyBBaXJlcyIsImZpZWxkcyI6WyJjb21tZW50cyJdLCJyZWFzb24iOiJOb3QgY2FwdHVyZWQgYXQgc291cmNlOyBjb3VudGVkIGFzIDEgY29tcGxldGVuZXNzIGdhcC4ifV0='',''Curitiba, Buenos Aires source gaps are included in the completeness denominator.''),
 (''Lab Capacity Utilization'',TRUE,NULL,''W10='',''''),
 (''Retest Rate'',TRUE,NULL,''W10='',''''),
@@ -136,7 +138,6 @@ CREATE OR REPLACE TASK OGFS_DEMO.ORCHESTRATION.gold_pipeline_task
   USER_TASK_TIMEOUT_MS = 3600000
   AFTER OGFS_DEMO.ORCHESTRATION.silver_pipeline_task
 AS CALL OGFS_DEMO.GOLD.run_gold_pipeline();
-
 CREATE OR REPLACE VIEW OGFS_DEMO.GOLD.orchestration_freshness AS
 SELECT source_table,MAX(completed_at) last_successful_load
 FROM OGFS_DEMO.BRONZE.orchestration_run_log WHERE status='SUCCEEDED' GROUP BY source_table;
