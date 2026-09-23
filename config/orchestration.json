@@ -1,11 +1,43 @@
 {
-  "target": "postgres",
-  "mode": "source",
+  "target": "snowflake",
+  "mode": "single",
   "singleSchedule": {
-    "cron": "0 6 * * *",
     "kind": "daily",
+    "interval": 1,
+    "intervalUnit": "hour",
     "time": "06:00",
+    "cron": "0 6 * * *",
     "timeZone": "America/Chicago"
+  },
+  "pipelineSchedules": {
+    "bronze": {
+      "kind": "daily",
+      "interval": 1,
+      "intervalUnit": "hour",
+      "time": "06:00",
+      "cron": "0 6 * * *",
+      "timeZone": "America/Chicago"
+    },
+    "silver": {
+      "kind": "daily",
+      "interval": 1,
+      "intervalUnit": "hour",
+      "time": "06:00",
+      "cron": "0 6 * * *",
+      "timeZone": "America/Chicago"
+    },
+    "gold": {
+      "kind": "daily",
+      "interval": 1,
+      "intervalUnit": "hour",
+      "time": "06:00",
+      "cron": "0 6 * * *",
+      "timeZone": "America/Chicago"
+    }
+  },
+  "edgeBehaviors": {
+    "bronze->silver": "success",
+    "silver->gold": "success"
   },
   "initialState": "paused",
   "retries": 1,
@@ -13,43 +45,47 @@
     {
       "id": "lims-1",
       "name": "Lab results",
-      "trigger": "arrival",
-      "schedule": {
-        "cron": "0 6 * * *",
-        "kind": "daily",
-        "time": "06:00",
-        "timeZone": "America/Chicago"
-      },
       "sourceTables": [
         "LIMS_ANNANDALE_SAMPLES",
         "LIMS_HOUSTON_SAMPLES",
         "LIMS_CURITIBA_AMOSTRAS",
         "LAB_MUESTRAS_BA"
       ],
+      "trigger": "arrival",
+      "schedule": {
+        "kind": "daily",
+        "interval": 1,
+        "intervalUnit": "hour",
+        "time": "06:00",
+        "cron": "0 6 * * *",
+        "timeZone": "America/Chicago"
+      },
       "freshnessHours": 4
     },
     {
       "id": "raw-material-master-2",
       "name": "Reference data",
-      "trigger": "schedule",
-      "schedule": {
-        "cron": "0 2 * * *",
-        "kind": "daily",
-        "time": "02:00",
-        "timeZone": "America/Chicago"
-      },
       "sourceTables": [
         "RAW_MATERIAL_MASTER"
       ],
+      "trigger": "schedule",
+      "schedule": {
+        "kind": "daily",
+        "interval": 1,
+        "intervalUnit": "hour",
+        "time": "02:00",
+        "cron": "0 2 * * *",
+        "timeZone": "America/Chicago"
+      },
       "freshnessHours": 24
     }
   ],
   "downstreamPolicy": {
-    "policy": "all",
+    "policy": "any",
     "windowHours": 24
   },
   "exceptions": {},
-  "lockedAt": "2026-09-22T16:53:13.252Z",
+  "lockedAt": "2026-09-23T15:57:06.177Z",
   "graph": {
     "nodes": [
       {
