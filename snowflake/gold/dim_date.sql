@@ -1,9 +1,9 @@
 -- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.GOLD.dim_date AS SELECT s.date_key,s.full_date,s.year,s.quarter,s.month,s.month_name,s.week_of_year,s.day_of_week FROM (SELECT source_raw.date_key,source_raw.full_date,source_raw.year,source_raw.quarter,source_raw.month,source_raw.month_name,source_raw.week_of_year,source_raw.day_of_week FROM (WITH event_dates AS (
-    SELECT TRY_TO_DATE(completion_date) event_date FROM OGFS_DEMO.SILVER.conformed_lab_sample
+    SELECT TO_DATE(completion_date) event_date FROM OGFS_DEMO.SILVER.conformed_lab_sample
     UNION ALL
-    SELECT TRY_TO_DATE(result_date) event_date FROM OGFS_DEMO.SILVER.conformed_test_result
+    SELECT TO_DATE(result_date) event_date FROM OGFS_DEMO.SILVER.conformed_test_result
   ), bounds AS (
     SELECT DATEADD(day,-31,COALESCE(MIN(event_date),CURRENT_DATE())) start_date,
            DATEADD(day,31,COALESCE(MAX(event_date),CURRENT_DATE())) end_date
