@@ -1,5 +1,5 @@
 {
-  "lockedAt": "2026-09-23T16:31:32.832Z",
+  "lockedAt": "2026-09-23T17:22:20.618Z",
   "config": {
     "tables": [
       {
@@ -34,7 +34,7 @@
             "pii": false,
             "rules": [
               {
-                "id": "r_3nvpkaj5",
+                "id": "r_hwfqy4pv",
                 "type": "case_normalize",
                 "pillar": "cleanse",
                 "params": {
