@@ -1,5 +1,5 @@
 -- Foundation Studio · Snowflake execution SQL
--- updated on Wednesday by Sid . tuesday change was somne with Ankit
+-- updated on Wednesday by Sid V3 . tuesday change was somne with Ankit
 
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.BRONZE.lims_annandale_samples AS
