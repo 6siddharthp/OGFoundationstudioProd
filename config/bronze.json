@@ -546,9 +546,11 @@
         },
         {
           "name": "analyst_id",
-          "origin": "manually mapped",
-          "present": false,
-          "dataType": "VARCHAR"
+          "origin": "manually overridden",
+          "present": true,
+          "dataType": "TEXT",
+          "stagedColumn": "TECNICO_ID",
+          "snowflakeColumn": "TECNICO_ID"
         },
         {
           "name": "reviewer_id",
@@ -1079,19 +1081,10 @@
     }
   ],
   "sourceMode": "snowflake",
-  "reconciledAt": "2026-09-23T15:32:14.073Z",
+  "reconciledAt": "2026-09-23T16:30:16.140Z",
   "reconciledBy": "studioadmin@polestaranalytics.com",
-  "inclusionAudit": [
-    {
-      "included": false,
-      "changedAt": "2026-09-23T15:29:18.040Z",
-      "changedBy": "studioadmin@polestaranalytics.com",
-      "sourceTable": "LAB_FILE_EXCEL",
-      "sourceSystem": "lims"
-    }
-  ],
+  "inclusionAudit": [],
   "instanceInclusion": {
-    "LAB_FILE_EXCEL": false,
     "LAB_MUESTRAS_BA": true,
     "RAW_MATERIAL_MASTER": true,
     "LIMS_HOUSTON_SAMPLES": true,
@@ -1099,6 +1092,6 @@
     "LIMS_CURITIBA_AMOSTRAS": true
   },
   "extraColumnChoices": {},
-  "lockedAt": "2026-09-23T15:47:40.929Z",
+  "lockedAt": "2026-09-23T16:30:34.584Z",
   "lockedBy": "studioadmin@polestaranalytics.com"
 }
