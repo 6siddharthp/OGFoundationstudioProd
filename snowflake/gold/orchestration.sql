@@ -132,9 +132,9 @@ FROM VALUES (''Cross-Lab Data Standardization Rate'',TRUE,NULL,''W10='',''''),
 END;
 $$;
 CREATE OR REPLACE TASK OGFS_DEMO.GOLD.gold_pipeline_task
-  WAREHOUSE = OGFS_DEMO_WH
+  WAREHOUSE = OGFS_DEMO_WH AFTER OGFS_DEMO.SILVER.silver_pipeline_task
   USER_TASK_TIMEOUT_MS = 3600000
-  AFTER OGFS_DEMO.SILVER.silver_pipeline_task
+  SUSPEND_TASK_AFTER_NUM_FAILURES = 2
 AS CALL OGFS_DEMO.GOLD.run_gold_pipeline();
 
 CREATE OR REPLACE VIEW OGFS_DEMO.GOLD.orchestration_freshness AS
