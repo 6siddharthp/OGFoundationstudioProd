@@ -1,5 +1,5 @@
 {
-  "lockedAt": "2026-09-24T20:12:34.452Z",
+  "lockedAt": "2026-09-24T20:22:19.671Z",
   "config": {
     "tables": [
       {
@@ -2660,8 +2660,5 @@
         ]
       }
     ]
-  },
-  "_foundation": {
-    "changeReason": "Silver configuration was saved."
   }
 }
