@@ -20,15 +20,7 @@ CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.silver_lims_curitiba AS
   row_data.submitter AS submitter,
   NULL AS project_reference,
   row_data.result_value AS result_value,
-  COALESCE((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%APIGRAVITY%' THEN 'specific_gravity'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%DENSITY%' THEN 'density'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%VISC%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') IN ('KV100','CCS','VI') THEN 'viscosity'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%FLASH%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%POURPOINT%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%CLOUDPOINT%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ANILINEPOINT%' THEN 'temperature'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%SULFUR%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%SULPHUR%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%WEARMETALS%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ICP%' THEN 'sulfur_trace'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%WATER%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ASH%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ACIDNUMBER%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%BASENUMBER%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') IN ('TAN','TBN') THEN 'concentration'
-    ELSE NULL
-  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
+  COALESCE((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref JOIN OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference method_ref ON method_ref.quantity_type=ref.quantity_type WHERE REGEXP_REPLACE(UPPER(TRIM(method_ref.source_method_name)),'[^A-Z0-9]','')=REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)),'[^A-Z0-9]','') AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))), NULL) AS result_unit,
   NULL AS spec_lower_limit,
   NULL AS spec_upper_limit,
   COALESCE((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))), NULL) AS sample_status,
@@ -39,15 +31,7 @@ CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.silver_lims_curitiba AS
   row_data.comments AS comments,
   row_data.site_code AS site_code,
   'lims_curitiba_amostras' AS source_table
-FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lims_curitiba_amostras AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%APIGRAVITY%' THEN 'specific_gravity'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%DENSITY%' THEN 'density'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%VISC%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') IN ('KV100','CCS','VI') THEN 'viscosity'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%FLASH%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%POURPOINT%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%CLOUDPOINT%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ANILINEPOINT%' THEN 'temperature'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%SULFUR%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%SULPHUR%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%WEARMETALS%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ICP%' THEN 'sulfur_trace'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%WATER%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ASH%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ACIDNUMBER%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%BASENUMBER%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') IN ('TAN','TBN') THEN 'concentration'
-    ELSE NULL
-  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data;
+FROM (SELECT row_data.* FROM OGFS_DEMO.BRONZE.lims_curitiba_amostras AS row_data WHERE NOT (COALESCE(((SELECT MAX(ref.governed_standard_reference) FROM OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_method_name AS VARCHAR))) = LOWER(TRIM(CAST(row_data.test_type AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref JOIN OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference method_ref ON method_ref.quantity_type=ref.quantity_type WHERE REGEXP_REPLACE(UPPER(TRIM(method_ref.source_method_name)),'[^A-Z0-9]','')=REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)),'[^A-Z0-9]','') AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL), FALSE) OR COALESCE(((SELECT MAX(ref.governed_status) FROM OGFS_DEMO.SILVER.governed_sample_status_reference AS ref WHERE LOWER(TRIM(CAST(ref.source_value AS VARCHAR))) = LOWER(TRIM(CAST(row_data.sample_status AS VARCHAR)))) IS NULL), FALSE))) AS row_data;
 
 -- foundation:stage 3
 INSERT INTO OGFS_DEMO.SILVER.quarantine_records
@@ -67,15 +51,7 @@ SELECT 'LIMS_CURITIBA_AMOSTRAS' source_table, row_data.source_row_number,
        'curitiba' site_code,
        'quarantined' review_status, OBJECT_CONSTRUCT_KEEP_NULL(row_data.*) source_data
 FROM OGFS_DEMO.BRONZE.lims_curitiba_amostras AS row_data
- WHERE (SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref WHERE ref.quantity_type=CASE
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%APIGRAVITY%' THEN 'specific_gravity'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%DENSITY%' THEN 'density'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%VISC%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') IN ('KV100','CCS','VI') THEN 'viscosity'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%FLASH%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%POURPOINT%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%CLOUDPOINT%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ANILINEPOINT%' THEN 'temperature'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%SULFUR%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%SULPHUR%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%WEARMETALS%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ICP%' THEN 'sulfur_trace'
-    WHEN REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%WATER%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ASH%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%ACIDNUMBER%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') LIKE '%BASENUMBER%' OR REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)), '[^A-Z0-9]', '') IN ('TAN','TBN') THEN 'concentration'
-    ELSE NULL
-  END AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
+ WHERE (SELECT MAX(ref.canonical_code) FROM OGFS_DEMO.SILVER.unit_registry AS ref JOIN OGFS_DEMO.SILVER.governed_astm_ilsac_test_method_reference method_ref ON method_ref.quantity_type=ref.quantity_type WHERE REGEXP_REPLACE(UPPER(TRIM(method_ref.source_method_name)),'[^A-Z0-9]','')=REGEXP_REPLACE(UPPER(TRIM(row_data.test_type)),'[^A-Z0-9]','') AND LOWER(TRIM(CAST(ref.accepted_alias AS VARCHAR))) = LOWER(TRIM(CAST(row_data.result_unit AS VARCHAR)))) IS NULL
 UNION ALL
 
 SELECT 'LIMS_CURITIBA_AMOSTRAS' source_table, row_data.source_row_number,
