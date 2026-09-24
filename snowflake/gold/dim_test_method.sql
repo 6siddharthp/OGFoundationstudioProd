@@ -39,5 +39,5 @@ WHERE NOT EXISTS (
 UPDATE OGFS_DEMO.GOLD.dim_test_method d
 SET method_title=s.method_title
 FROM (SELECT source_raw.test_method_key,source_raw.governed_standard_reference,source_raw.standard_body,source_raw.method_title,source_raw.applies_to_business_line FROM (SELECT * FROM OGFS_DEMO.SILVER.conformed_test_method) source_raw) s
-WHERE d.test_method_key=s.test_method_key AND d.is_current=TRUE
+WHERE d.test_method_key=s.test_method_key
   AND (d.method_title IS DISTINCT FROM s.method_title);
