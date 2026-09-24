@@ -1,6 +1,7 @@
 -- Foundation Studio · Snowflake execution SQL
 -- updated on Wednesday by Sid V3 . tuesday change was somne with Ankit
 -- Chetan ji
+
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.BRONZE.lims_annandale_samples AS
 SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS source_row_number,
