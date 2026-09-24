@@ -1081,7 +1081,7 @@
     }
   ],
   "sourceMode": "snowflake",
-  "reconciledAt": "2026-09-24T20:21:41.606Z",
+  "reconciledAt": "2026-09-24T21:08:16.329Z",
   "reconciledBy": "studioadmin@polestaranalytics.com",
   "inclusionAudit": [],
   "instanceInclusion": {
@@ -1092,6 +1092,6 @@
     "LIMS_CURITIBA_AMOSTRAS": true
   },
   "extraColumnChoices": {},
-  "lockedAt": "2026-09-24T20:21:55.691Z",
+  "lockedAt": "2026-09-24T21:09:33.566Z",
   "lockedBy": "studioadmin@polestaranalytics.com"
 }
