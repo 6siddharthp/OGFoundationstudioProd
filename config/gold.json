@@ -1,11 +1,13 @@
 {
-  "confirmedAt": "2026-09-24T21:15:27.881Z",
+  "confirmedAt": "2026-09-30T21:30:24.137Z",
   "lockedBy": "studioadmin@polestaranalytics.com",
   "selectedKpis": [
     "Cross-Lab Data Standardization Rate",
     "Cross-Lab Reproducibility Index",
     "Cross-Site Result Correlation",
     "Duplicate Test Rate Across Labs",
+    "Inter-Site Result Deviation",
+    "Site-Pair Agreement by Method",
     "Test Method Standardization Rate",
     "Unmatched Sample Rate",
     "Backlog Aging Index",
