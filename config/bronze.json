@@ -1094,6 +1094,9 @@
   "extraColumnChoices": {
     "LIMS_ANNANDALE_SAMPLES|LAB_NOTEBOOK_REF": false
   },
-  "lockedAt": "2026-09-30T19:10:13.993Z",
-  "lockedBy": "studioadmin@polestaranalytics.com"
+  "lockedAt": "2026-09-30T21:29:33.484Z",
+  "lockedBy": "studioadmin@polestaranalytics.com",
+  "_foundation": {
+    "changeReason": "Bronze configuration was saved."
+  }
 }
