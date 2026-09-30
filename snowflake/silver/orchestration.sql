@@ -1,5 +1,6 @@
 -- Foundation Studio · generated orchestration
 -- Single schedule mode has no independent downstream dispatcher.
+-- Foundation Studio · governed golden-record overrides
 
 CREATE OR REPLACE PROCEDURE OGFS_DEMO.SILVER.run_silver_pipeline()
 RETURNS VARCHAR LANGUAGE SQL EXECUTE AS OWNER AS $$
@@ -248,7 +249,7 @@ FROM VALUES (''sus_to_cst'',''viscosity'',''SUS'',''CST'',''formula'',NULL,NULL,
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.silver_lims_annandale AS
  SELECT row_data.source_row_number,
   row_data.sample_id AS sample_id,
-  UPPER(row_data.product_line) AS product_line_chetan,
+  row_data.product_line AS product_line,
   row_data.material_code AS material_code,
   row_data.batch_lot_number AS batch_lot_number,
   row_data.container_id AS container_id,
@@ -533,15 +534,6 @@ CREATE TABLE IF NOT EXISTS OGFS_DEMO.SILVER.golden_record_overrides (
   source_table VARCHAR,source_row_number NUMBER,source_material_code VARCHAR,golden_values VARIANT,
   actor VARCHAR,decided_at TIMESTAMP_TZ,rationale VARCHAR
 )';
-  EXECUTE IMMEDIATE '-- foundation:stage 3
--- Foundation Studio · governed golden-record overrides
-CREATE TABLE IF NOT EXISTS OGFS_DEMO.SILVER.GOLDEN_RECORD_OVERRIDES (
-  ACTION_ID VARCHAR, ITEM_KEY VARCHAR, ACTION VARCHAR, GOLDEN_KEY VARCHAR,
-  SOURCE_TABLE VARCHAR, SOURCE_ROW_NUMBER NUMBER, SOURCE_MATERIAL_CODE VARCHAR, GOLDEN_VALUES VARIANT,
-  ACTOR VARCHAR, DECIDED_AT TIMESTAMP_TZ, RATIONALE VARCHAR
-)';
-  EXECUTE IMMEDIATE '-- foundation:stage 3
-DELETE FROM OGFS_DEMO.SILVER.GOLDEN_RECORD_OVERRIDES';
   EXECUTE IMMEDIATE '-- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.material_identity_map AS
@@ -908,7 +900,7 @@ GROUP BY COALESCE(r.governed_standard_reference, m.test_type)';
   EXECUTE IMMEDIATE '-- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.conformed_lab_sample AS SELECT ''SMP_'' || MD5(''annandale:'' || s.source_row_number) lab_sample_key,
-  m.material_key, tm.test_method_key, ''annandale'' site_code, NULL::VARCHAR business_line,
+  m.material_key, tm.test_method_key, ''annandale'' site_code, s.product_line business_line,
  TRY_TO_TIMESTAMP_NTZ(TO_VARCHAR(s.date_completed)) completion_date,
  TRY_TO_TIMESTAMP_NTZ(TO_VARCHAR(s.date_requested)) requested_date,
  s.sample_status sample_status, 1 source_system_count
