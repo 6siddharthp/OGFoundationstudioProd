@@ -1092,6 +1092,9 @@
     "LIMS_CURITIBA_AMOSTRAS": true
   },
   "extraColumnChoices": {},
-  "lockedAt": "2026-10-01T01:58:04.564Z",
-  "lockedBy": "studioadmin@polestaranalytics.com"
+  "lockedAt": "2026-10-01T01:58:41.361Z",
+  "lockedBy": "studioadmin@polestaranalytics.com",
+  "_foundation": {
+    "changeReason": "Bronze configuration was saved."
+  }
 }
