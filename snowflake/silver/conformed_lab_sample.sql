@@ -1,7 +1,7 @@
 -- Foundation Studio · Snowflake execution SQL
 -- foundation:stage 2
 CREATE OR REPLACE TABLE OGFS_DEMO.SILVER.conformed_lab_sample AS SELECT 'SMP_' || MD5('annandale:' || s.source_row_number) lab_sample_key,
-  m.material_key, tm.test_method_key, 'annandale' site_code, s.product_line business_line,
+  m.material_key, tm.test_method_key, 'annandale' site_code, NULL::VARCHAR business_line,
  TRY_TO_TIMESTAMP_NTZ(TO_VARCHAR(s.date_completed)) completion_date,
  TRY_TO_TIMESTAMP_NTZ(TO_VARCHAR(s.date_requested)) requested_date,
  s.sample_status sample_status, 1 source_system_count
