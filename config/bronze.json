@@ -1081,7 +1081,7 @@
     }
   ],
   "sourceMode": "snowflake",
-  "reconciledAt": "2026-09-30T19:10:02.126Z",
+  "reconciledAt": "2026-10-01T01:57:51.009Z",
   "reconciledBy": "studioadmin@polestaranalytics.com",
   "inclusionAudit": [],
   "instanceInclusion": {
@@ -1091,12 +1091,7 @@
     "LIMS_ANNANDALE_SAMPLES": true,
     "LIMS_CURITIBA_AMOSTRAS": true
   },
-  "extraColumnChoices": {
-    "LIMS_ANNANDALE_SAMPLES|LAB_NOTEBOOK_REF": false
-  },
-  "lockedAt": "2026-09-30T21:29:33.484Z",
-  "lockedBy": "studioadmin@polestaranalytics.com",
-  "_foundation": {
-    "changeReason": "Bronze configuration was saved."
-  }
+  "extraColumnChoices": {},
+  "lockedAt": "2026-10-01T01:58:04.564Z",
+  "lockedBy": "studioadmin@polestaranalytics.com"
 }
