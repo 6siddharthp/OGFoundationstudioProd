@@ -1,5 +1,5 @@
 {
-  "confirmedAt": "2026-10-01T02:02:03.202Z",
+  "confirmedAt": "2026-10-01T02:50:13.087Z",
   "lockedBy": "studioadmin@polestaranalytics.com",
   "selectedKpis": [
     "Cross-Lab Data Standardization Rate",
@@ -492,6 +492,26 @@
           "dataType": "BOOLEAN",
           "description": "KPI measure.",
           "isPrimaryKey": false,
+          "isForeignKey": false
+        }
+      ]
+    },
+    {
+      "name": "Dim_New",
+      "description": "User-defined Gold table. Grain: one row per new.",
+      "kind": "dimension",
+      "grain": "one row per new",
+      "sourceType": "generated",
+      "recommendationReason": "Added by the user to extend the AI-generated target model.",
+      "scdType": "type1",
+      "recommendedScdType": "type1",
+      "scdReason": "Its descriptive changes are expected to be corrections or current-state updates without analytical history.",
+      "columns": [
+        {
+          "name": "new_key",
+          "dataType": "VARCHAR",
+          "description": "Gold model attribute.",
+          "isPrimaryKey": true,
           "isForeignKey": false
         }
       ]
