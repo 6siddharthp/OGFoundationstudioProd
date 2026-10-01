@@ -4,8 +4,8 @@
   "singleSchedule": {
     "kind": "daily",
     "interval": 1,
-    "intervalUnit": "hour",
-    "time": "03:00",
+    "intervalUnit": "minute",
+    "time": "06:00",
     "cron": "0 6 * * *",
     "timeZone": "America/Chicago"
   },
@@ -13,8 +13,8 @@
     "bronze": {
       "kind": "daily",
       "interval": 1,
-      "intervalUnit": "hour",
-      "time": "03:00",
+      "intervalUnit": "minute",
+      "time": "06:00",
       "cron": "0 6 * * *",
       "timeZone": "America/Chicago"
     },
@@ -85,7 +85,7 @@
     "windowHours": 24
   },
   "exceptions": {},
-  "lockedAt": "2026-10-01T02:03:26.388Z",
+  "lockedAt": "2026-10-01T02:52:19.404Z",
   "graph": {
     "nodes": [
       {
@@ -307,6 +307,18 @@
         "inputs": [
           "conformed:test_result"
         ]
+      },
+      {
+        "id": "gold:dim_new",
+        "label": "dim_new",
+        "type": "gold",
+        "inputs": [
+          "conformed:material",
+          "conformed:lab_sample",
+          "conformed:test_method",
+          "conformed:test_result",
+          "conformed:pilot_plant_run"
+        ]
       }
     ],
     "edges": [
@@ -513,6 +525,26 @@
       {
         "from": "conformed:test_result",
         "to": "gold:fact_test_result"
+      },
+      {
+        "from": "conformed:material",
+        "to": "gold:dim_new"
+      },
+      {
+        "from": "conformed:lab_sample",
+        "to": "gold:dim_new"
+      },
+      {
+        "from": "conformed:test_method",
+        "to": "gold:dim_new"
+      },
+      {
+        "from": "conformed:test_result",
+        "to": "gold:dim_new"
+      },
+      {
+        "from": "conformed:pilot_plant_run",
+        "to": "gold:dim_new"
       }
     ],
     "staleSources": [],
@@ -551,7 +583,8 @@
         "dim_business_line",
         "dim_date",
         "fact_lab_sample",
-        "fact_test_result"
+        "fact_test_result",
+        "dim_new"
       ]
     }
   }
